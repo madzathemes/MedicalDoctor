@@ -1,0 +1,107 @@
+= Version 3.0 – 02.04.2016 =
+ADD alt tags for glass slider
+REMOVE unused get_post_meta from glass slider
+FIX service single image height
+UPDATED Plugins
+Minor bug fixes
+
+= Version 2.9 – 02.03.2016 =
+UPDATED Plugins
+Minor bug fixes
+
+= Version 2.8 – 02.02.2016 =
+IMPORTANT - SECURITY FIX
+IMPROVE - Theme load speed
+FIX - important errors
+FIX - layout style
+UPDATED Visual Composer Plugin
+UPDATED Timetable Plugin
+Minor bug fixes
+
+= Version 2.7 – 07.12.2015 =
+FIX - WooCommerce templates
+FIX - Instagram fix for mobile
+UPDATED Visual Composer Plugin
+UPDATED LayerSlider Plugin
+UPDATED Timetable Plugin
+Minor bug fixes
+
+= Version 2.6 – 23.11.2015 =
+FIX - Title Background
+FIX - Instagram
+UPDATED Visual Composer Plugin
+UPDATED LayerSlider Plugin
+UPDATED Timetable Plugin
+Minor bug fixes
+
+= Version 2.5 – 06.10.2015 =
+FIX -Shortcode Errors
+UPDATED Visual Composer Plugin
+UPDATED LayerSlider Plugin
+UPDATED Timetable Plugin
+Minor bug fixes
+
+= V2.4 - 14.09.2015 =
+FIX - CPT Shortcode Error 
+UPDATED Option Tree
+UPDATED Visual Composer Plugin
+UPDATED LayerSlider Plugin
+UPDATED Timetable Plugin
+Minor bug fixes
+
+= V2.2 - 07.07.2015 =
+IMPORTANT - prettyPhoto Security fix
+FIX - Login Form Style 
+FIX - Google Plus Icon URL
+FIX - Video Background
+ADD - WMPL selector for header
+UPDATED Option Tree
+UPDATED Visual Composer Plugin
+UPDATED WPDonation Plugin
+UPDATED LayerSlider Plugin
+UPDATED PrettyPhoto Plugin
+
+= V2.1 - 29.04.2015 =
+
+- style.css
+- all_plugins/
+- option-tree/
+- functions/
+
+WordPress 4.2 Ready
+FIXED Plugin install
+FIXED php short tag issue
+UPDATED VisualComposer Plugin
+UPDATED OptionTree
+
+
+
+= V2.0 - 01.04.2015 =
+
+- style.css
+- functions.php
+- style.php
+- header.php
+- page.php
+- images/logo.png
+- functions/
+- all_plugins/
+- option-tree/
+- woocommerce/
+
+NEW WooCommerce Shop
+NEW Instagram Social Icon
+FIXED W3 Validation
+FIXED WPML issue
+FIXED italic fonts
+UPDATED Menu script
+UPDATED VisualComposer Plugin
+UPDATED LayerSlider Plugin
+UPDATED Timetable Plugin
+UPDATED Essential Grid Plugin
+UPDATED OptionTree
+UPDATED FontAwesome 4.3 icons (Now every icon need extra class “fa”)
+CHANGE Social Icon from images to fonts
+CHANGE FontAwesome 3.2.1 icons to FontAwesome 4.3 icons (Add extra class “fa”)
+FIXED Page full with issue
+*Minor bug fixes.
