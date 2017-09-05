@@ -41,6 +41,7 @@ extract(shortcode_atts(array(
 	'less_button_label'=>'Less Facts',
 	'button_position'=>'center',
 	'color'=>'',
+	'el_id'=>'',
 	'hover_color'=>'',
 	'content_background_color' => '',
 	'css_animation'=>'',
@@ -61,7 +62,7 @@ $style = $this->buildStyle($bg_image, $bg_color, $bg_image_repeat, $font_color, 
 
 if($type == "grid"){
 	$css_class_type_inner =  " section_inner";
-	
+
 } else {
 	$css_class_type_inner =  " full_section_inner";
 }
@@ -74,12 +75,12 @@ if($video == "show_video"){
 
 
 $_image ="";
-if($background_image != '' || $background_image != ' ') { 
+if($background_image != '' || $background_image != ' ') {
 	$_image = wp_get_attachment_image_src( $background_image, 'full');
 }
 
 $overlay_image ="";
-if($video_overlay_image != '' && $video_overlay_image != ' ') { 
+if($video_overlay_image != '' && $video_overlay_image != ' ') {
 	$overlay_image = wp_get_attachment_image_src( $video_overlay_image, 'full');
 }
 
@@ -87,11 +88,11 @@ if($video_overlay_image != '' && $video_overlay_image != ' ') {
 
 
 if($row_type == 'row') {
-	$output .= '<div class="mt_style_row '.$style.'"';
-	
+	$output .= '<div class="mt_style_row '.$style.' '.$text_align.' '.$el_class.'"';
+
 	if($background_color != "" || $padding_top != "" || $padding_bottom != "" || $text_align != "" || $_image != ""){
 			$output .= " style='";
-			
+
 			$output .= $custom_css. ' ';
 				if($background_color != ""){
 					$output .="background-color:".$background_color.";";
@@ -119,14 +120,16 @@ if($row_type == 'row') {
 				$output .= ' text-align:' . $text_align . ';';
 				$output.="'";
 		}
-	
-	$output .= '>';
-	
-	
+
+				if ( ! empty( $el_id ) ) { $output .= ' id="' . esc_attr( $el_id ) . '" '; }
+
+		$output .= '>';
+
+
 	if($video == "show_video"){
 		$v_image = wp_get_attachment_url($video_image);
 		$v_overlay_image = wp_get_attachment_url($video_overlay_image);
-		
+
 		$output .= '<div class="mobile-video-image" style="background-image: url('.$v_image.')"></div><div class="video-overlay';
 								if($video_overlay == "show_video_overlay"){
 									$output .= ' active';
@@ -134,7 +137,7 @@ if($row_type == 'row') {
 								$output .= '"';
 								$output .= ($overlay_image !== '' && $overlay_image !== ' ') ? " style='background-image:url(" . $overlay_image[0] . ");'" : '';
 								$output .= '></div><div class="video-wrap">
-									
+
 									<video loop autoplay muted  class="video videobcg" width="1920" height="800" poster="'.$v_image.'" preload="auto" >';
 											if(!empty($video_webm)) { $output .= '<source type="video/webm" src="'.$video_webm.'">'; }
 											if(!empty($video_mp4)) { $output .= '<source type="video/mp4" src="'.$video_mp4.'">'; }
@@ -144,21 +147,20 @@ if($row_type == 'row') {
 													<param name="flashvars" value="controls=true&file='.$video_mp4.'" />
 													<img src="'.$v_image.'" width="1920" height="800" title="No video playback capabilities" alt="Video thumb" />
 											</object>
-									</video>		
+									</video>
 							</div>';
 	}
-	
-	
+
+
 } else if($row_type == 'parallax'){
 
-  
-    $output .='<div data-type="'. $parallax_type .'" data-speed="'. $parallax_speed .'"  class="mt_style_row mt_section_holder '.$parallax_type.' '.$text_align.' '.$el_class.'" style = "';
-    
-    
+
+    $output .='<div data-type="'. $parallax_type .'" data-speed="'. $parallax_speed .'"  class="mt_style_row mt_section_holder '.$parallax_type.' '.$text_align.' '.$el_class.' " style = "';
+
     $output .= ($background_image !== '' || $background_image !== ' ') ? " background-image:url('" . $_image[0] . "');" : "";
-    
+
     if($padding_top != "" || $padding_bottom != ""){
-			
+
 				if($padding_top != ""){
 					$output .=' padding-top:' . ( preg_match( '/(px|em|\%|pt|cm)$/', $padding_top ) ? $padding_top : $padding_top . 'px' ) . '; ';
 				}
@@ -166,31 +168,36 @@ if($row_type == 'row') {
 					$output .=' padding-bottom:' . ( preg_match( '/(px|em|\%|pt|cm)$/', $padding_bottom ) ? $padding_bottom : $padding_bottom . 'px' ) . '; ';
 				}
 		}
-		
-    $output .= '">';
+
+    $output .= '"';
+
+				if ( ! empty( $el_id ) ) { $output .= ' id="' . esc_attr( $el_id ) . '" '; }
+
+		$output .= '>';
+
 }
 
 
 
 //IF BOXED
-if($type == 'full_width' or get_post_meta($post->ID, "layout_positions", true)!='full') { 
-	$output .= ''; 
+if($type == 'full_width' or get_post_meta($post->ID, "layout_positions", true)!='full') {
+	$output .= '';
 } else {
-	$output .= '<div class="container mt-madza-container"><div class="row">'; 
+	$output .= '<div class="container mt-madza-container"><div class="row">';
 }
 //CONTENT
 $output .= wpb_js_remove_wpautop($content);
 
 //IF BOXED
-if($type == 'full_width' or get_post_meta($post->ID, "layout_positions", true)!='full') { 
-	$output .= ''; 
+if($type == 'full_width' or get_post_meta($post->ID, "layout_positions", true)!='full') {
+	$output .= '';
 } else {
-	$output .= '</div></div>'; 
+	$output .= '</div></div>';
 }
 
 //CONTAINTER ABOVE COLOR
-if($background_color !="") { 
-	$output .= '<div class="mt-frame-color" style="opacity:'.$opacity.'; background-color:'. $background_color_2 .'"></div>'; 
+if($background_color !="") {
+	$output .= '<div class="mt-frame-color" style="opacity:'.$opacity.'; background-color:'. $background_color_2 .'"></div>';
 }
 
 $output .= "</div>".$this->endBlockComment('row');

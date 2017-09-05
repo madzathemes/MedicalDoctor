@@ -68,7 +68,6 @@ include_once ('functions/import/madza-export.php');
 add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 
-
 function madza_theme_setup() {
 
 	add_editor_style();
@@ -98,8 +97,6 @@ function madza_theme_setup() {
 	register_nav_menus( array(
 		'footer_menu' => __( 'Footer Navigation', 'madza_translate' ),
 	) );
-
-
 
 }
 
@@ -240,6 +237,11 @@ add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
  * This function is hooked into tgmpa_init, which is fired within the
  * TGM_Plugin_Activation class constructor.
  */
+
+
+
+
+
 function my_theme_register_required_plugins() {
 
     /**
@@ -254,7 +256,7 @@ function my_theme_register_required_plugins() {
             'slug'			=> 'js_composer', // The plugin slug (typically the folder name)
             'source'			=> get_stylesheet_directory() . '/all_plugins/js_composer.zip', // The plugin source
             'required'			=> true, // If false, the plugin is only 'recommended' instead of required
-            'version'			=> '4.12', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+            'version'			=> '5.0.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
             'force_activation'		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
             'force_deactivation'	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
             'external_url'		=> '', // If set, overrides default API URL and points to an external URL
@@ -269,7 +271,7 @@ function my_theme_register_required_plugins() {
             'slug'			=> 'LayerSlider', // The plugin slug (typically the folder name)
             'source'			=> get_stylesheet_directory() . '/all_plugins/LayerSlider.zip', // The plugin source
             'required'			=> true, // If false, the plugin is only 'recommended' instead of required
-            'version'			=> '5.6.9', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+            'version'			=> '6.1.0', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
             'force_activation'		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
             'force_deactivation'	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
             'external_url'		=> '', // If set, overrides default API URL and points to an external URL
@@ -284,7 +286,7 @@ function my_theme_register_required_plugins() {
             'slug'			=> 'timetable', // The plugin slug (typically the folder name)
             'source'			=> get_stylesheet_directory() . '/all_plugins/timetable.zip', // The plugin source
             'required'			=> true, // If false, the plugin is only 'recommended' instead of required
-            'version'			=> '3.7', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+            'version'			=> '3.8', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
             'force_activation'		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
             'force_deactivation'	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
             'external_url'		=> '', // If set, overrides default API URL and points to an external URL

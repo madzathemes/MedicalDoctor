@@ -76,7 +76,7 @@ vc_add_param("vc_row", array(
 	"param_name" => "type",
 	"value" => array(
 		"In Grid" => "grid",
-		"Full Width" => "full_width"		
+		"Full Width" => "full_width"
 	),
 	"dependency" => Array('element' => "row_type", 'value' => array('row'))
 ));
@@ -224,7 +224,7 @@ vc_add_param("vc_row", array(
 		"7" => "7",
 		"8" => "8",
 		"9" => "9",
-		
+
 	),
     "dependency" => Array('element' => "row_type", 'value' => array('parallax'))
 ));
@@ -263,7 +263,7 @@ vc_add_param("vc_row", array(
 	"type" => "textfield",
 	"class" => "",
 	"heading" => "Padding Top",
-	"value" => "40",
+	"value" => "",
 	"param_name" => "padding_top",
 	"description" => "",
 	"dependency" => Array('element' => "row_type", 'value' => array('row','parallax'))
@@ -272,7 +272,7 @@ vc_add_param("vc_row", array(
 	"type" => "textfield",
 	"class" => "",
 	"heading" => "Padding Bottom",
-	"value" => "40",
+	"value" => "",
 	"param_name" => "padding_bottom",
 	"description" => "",
 	"dependency" => Array('element' => "row_type", 'value' => array('row','parallax'))
@@ -296,7 +296,7 @@ vc_add_param("vc_row", array(
 #  "value" => $animations,
 #  "description" => "",
 #  "dependency" => Array('element' => "row_type", 'value' => array('row'))
-#  
+#
 #));
 #vc_add_param("vc_row",  array(
 #  "type" => "textfield",
@@ -306,7 +306,7 @@ vc_add_param("vc_row", array(
 #  "value" => "",
 #  "description" => "",
 #  "dependency" => Array('element' => "row_type", 'value' => array('row'))
-  
+
 #));
 
 ?>

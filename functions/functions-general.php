@@ -273,8 +273,6 @@ function twentytwelve_scripts_styles() {
 add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts_styles' );
 
 
-
-
 /*-----------------------------------------------------------------------------------*/
 /* Breadcrumb function
 /*-----------------------------------------------------------------------------------*/

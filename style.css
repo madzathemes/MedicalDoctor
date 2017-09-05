@@ -1,6 +1,6 @@
 @charset "utf-8";
-/*-----------------------------------------------------------------------------------
-	Version: 3.3
+/*----------------------------------------------------------------------------------
+	Version: 4.3
     Theme Name: MedicalDoctor
     Theme URI: http://themeforest.net/user/madza
     Description: Theme For Medicine
@@ -672,7 +672,9 @@ ul.sf-menu ul, div.sf-menu ul ul {
 	margin: 16px 0px 0px 0px!important;
 }
 
-ul.sf-menu ul ul, div.sf-menu ul ul ul { margin-top: -33px!important; }
+ul.sf-menu ul ul, div.sf-menu ul ul ul { margin-top: -1px!important; }
+.mt_style_header_2 ul.sf-menu ul ul, div.sf-menu ul ul ul { margin-top: -1px!important; }
+.mt_style_header_3 ul.sf-menu ul ul, div.sf-menu ul ul ul { margin-top: -1px!important; }
 ul.sf-menu ul li, div.sf-menu ul ul li {
 	width:			100%;
 
@@ -4945,3 +4947,390 @@ body.login label { font-weight: normal; display: inline; }
 body.login input:-webkit-autofill { background-color: #fbfbfb!important; }
 p#nav {border:0px solid silver!important; background:none!important; }
 /* END Admin Login Fix */
+
+/* HEAD SMALL NAV */
+.nav-button {
+  line-height: 46px;
+  padding: 0px 15px;
+  width: 52px;
+  height: 46px;
+}
+.nav-button:hover,
+.nav-button:hover::before,
+.nav-button.active,
+.nav-button.active::before,
+.nav-search-wrap:hover {
+  background: #e2e3e4;
+}
+
+.mt-m-left .mt-m-cool-button-line { margin-left:8px; }
+.mt-m-cool-button-line {
+  position: absolute;
+  font-size: 30px;
+  display: block;
+  top: 50%;
+  width: 22px;
+  height: 3px;
+  background: #fff;
+}
+
+.mt-m-cool-button-line,
+.mt-m-cool-button-line:after,
+.mt-m-cool-button-line:before {
+  background-color: #fff;
+}
+
+.mt-m-cool-button-line:after {
+  bottom: -5px;
+}
+.mt-m-cool-button-line:before {
+  top: -5px;
+}
+.mt-m-cool-button-line:after,
+.mt-m-cool-button-line:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  left: 0;
+}
+.nav-button.active .mt-m-cool-button-line,
+.nav-button.active .mt-m-cool-button-line:after,
+.nav-button.active .mt-m-cool-button-line:before {
+  background: #252b42;
+}
+.mt-m-cool-button-line {
+    position: absolute;
+    font-size: 30px;
+    display: block;
+    top: 48%;
+    width: 22px;
+    height: 2px;
+    background: #000;
+}
+.hover-menu {
+  position: absolute;
+  width: 66%;
+  background: #efefef;
+  padding: 30px;
+  color: white;
+  display: none;
+}
+.hover-menu-wrap{
+  position: relative;
+  clear:both;
+  margin: 0px 20px;
+}
+.hover-menu.active {
+  display: block;
+}
+.hover-menu:after {
+  content: " ";
+  width: 100%;
+  height: 10px;
+  background: black;
+  position: absolute;;
+  bottom:0px;
+  left:0px;
+  opacity: 0.1;
+}
+.hover-menu-head {
+  display: block;
+  text-transform: uppercase;
+  color: #252b42;
+  font-size: 16px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.hover-menu ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  margin-top: 16px;
+}
+.hover-menu ul.mobile,
+.hover-menu .mobile ul {
+  margin: 0px;
+  text-align: center;
+}
+.hover-menu ul li a {
+  text-transform: uppercase;
+  padding: 4px 0px;
+  display: inline-block;
+}
+.hover-menu ul li li {
+  margin-left: 10px;
+}
+.hover-menu ul ul {
+  margin-top: 0px;
+}
+.hover-menu a{
+  color: #373e59;
+  font-size: 14px;
+}
+.hover-menu .mobile a {
+  font-size: 18px;
+}
+.hover-menu .mobile ul {
+  margin: 0px;
+}
+.hover-menu .mobile ul a {
+  font-size: 18px;
+}
+.fixed-top-menu {
+  -webkit-backface-visibility: hidden;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  position: fixed;
+  width: 100%;
+  height: 45px;
+  z-index: 99999;
+  background: white;
+  transform: translate(0,-55px);
+   -webkit-transform: translate(0,-55px); /** Safari & Chrome **/
+   -o-transform: translate(0,-55px); /** Opera **/
+   -moz-transform: translate(0,-55px); /** Firefox **/
+}
+
+
+/* Head Mobile */
+.mt-header-mobile {
+  height: 50px;
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  transform: translate(0,0);
+  -webkit-transform: translate(0,0);
+  -o-transform: translate(0,0);
+  -moz-transform: translate(0,0);
+  background: #fff;
+	-webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
+	-moz-box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
+	box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
+}
+.nav-down .mt-header-mobile {
+  transform: translate(0,0);
+  -webkit-transform: translate(0,0);
+  -o-transform: translate(0,0);
+  -moz-transform: translate(0,0);
+}
+.nav-up.fixed-on .mt-header-mobile {
+  transform: translate(0,-55px);
+  -webkit-transform: translate(0,-55px);
+  -o-transform: translate(0,-55px);
+  -moz-transform: translate(0,-55px);
+}
+.mt-header-space {
+  height: 50px;
+}
+.mt-mobile-logo {
+  height: 100%;
+  padding: 5px 0px 5px 15px;
+  display: inline-block;
+}
+.mt-mobile-logo a {
+	height: 100%;
+}
+.mt-mobile-logo img {
+  height: 100% !important;
+	width: auto;
+}
+.nav-mobile {
+  line-height: 46px;
+  padding: 0px 12px;
+  width: 46px;
+  height: 46px;
+}
+.mt-smart-menu {
+  display: none;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 999999;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  -o-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  -webkit-transition: transform .7s ease;
+  -moz-transition: transform .7s ease;
+  -o-transition: transform .7s ease;
+  transition: transform .7s ease;
+}
+.mt-smart-menu ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.mt-smart-menu ul ul.sub-menu {
+    -webkit-transition: all 600ms ease-out !important;
+    -moz-transition: all 600ms ease-out !important;
+    -ms-transition: all 600ms ease-out !important;
+    -o-transition: all 600ms ease-out !important;
+    transition: all 600ms ease-out !important;
+}
+.mt-smart-menu ul a {
+  font-size: 18px;
+  padding: 5px;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+}
+.mt-smart-menu ul ul {
+  margin-left: 20px;
+  z-index: 2;
+  position: relative;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+.mt-smart-menu ul .active ul {
+  max-height: 1000px;
+  overflow: visible;;
+  opacity: 1;
+}
+.mt-smart-menu .menu-item-has-children {
+  position: relative;
+}
+.mt-smart-menu .menu-item-has-children span {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+}
+@font-face {
+  font-family: "medicaldoctor";
+  src:url("fonts/medicaldoctor.eot");
+  src:url("fonts/medicaldoctor.eot?#iefix") format("embedded-opentype"),
+    url("fonts/medicaldoctor.woff") format("woff"),
+    url("fonts/medicaldoctor.ttf") format("truetype"),
+    url("fonts/medicaldoctor.svg#medicaldoctor") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+.mt-smart-menu .menu-item-has-children:after {
+  font-family: "medicaldoctor" !important;
+  content: "\e900";
+  position: absolute;
+  font-size: 21px;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  top: 8px;
+  right: 5px;
+}
+.mt-smart-menu .active.menu-item-has-children:after {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.mt-smart-menu ul ul a {
+  font-size: 18px;
+  font-weight: normal;
+  padding: 5px;
+}
+.mobile-menu-active .mt-smart-menu {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.mt-smart-menu {
+    display: block!important;
+    background: white;
+    max-width: 400px;
+}
+.mt-smart-menu > div {
+	text-align: left !important;
+}
+.mt-smart-menu .mt_donation_button {
+	display: inline-block;
+	margin: 10px 0px 20px;
+}
+.mt-smart-menu .mt-social {
+	float:none;
+}
+.mt-smart-menu .mobile {
+	margin-top: 40px;
+	display: inline-block;
+	margin-bottom: 5px;
+	width: 100%;
+}
+.mt-smart-menu .mt-social li {
+	margin-right: 0px;
+}
+.mt-smart-menu .mt-social li a{
+	border-width: 0px
+}
+.mobile-menu-active  .mt-smart-menu-out {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(25, 25, 25, 0.67);
+  z-index: 99999
+}
+.shadow-wrap .mt-outer-wrap {
+  -webkit-box-shadow: 0 0 100px #e6e6e6;
+  -moz-box-shadow: 0 0 100px #e6e6e6;
+  box-shadow: 0 0 100px #e6e6e6;
+}
+.boxed-layout-on.shadow-wrap .mt-outer-wrap {
+  -webkit-box-shadow: 0 0 0 white;
+  -moz-box-shadow: 0 0 0 white;
+  box-shadow: 0 0 0 white;
+}
+.mobile-menu-active .mt-outer-wrap {
+  transform: scale3d(.8,.8,.8)!important;
+  -webkit-transform: scale3d(.8,.8,.8)!important;
+  -moz-transform: scale3d(.8,.8,.8)!important;
+  -ms-transform: scale3d(.8,.8,.8)!important;
+  height: 100%;
+}
+
+.mt-outer-wrap {
+    overflow: auto;
+    margin: auto;
+    width: 100%;
+    -webkit-transition: transform .7s ease!important;
+    -moz-transition: transform .7s ease!important;
+    -o-transition: transform .7s ease!important;
+    transition: transform .7s ease!important;
+    -webkit-transform-origin: 50% 200px 0;
+    -moz-transform-origin: 50% 200px 0;
+    -o-transform-origin: 50% 200px 0;
+    transform-origin: 50% 200px 0;
+}
+
+.mt-smart-menu .close:before {
+  font-family: "medicaldoctor" !important;
+  content: "\e903";
+  display: inline-block;
+  position: absolute;
+  font-size: 31px;
+  padding: 20px;
+  top: 0px;
+  right: 0px;
+  cursor: pointer;
+}
+.mt-smart-menu .mt-social {
+	margin-left: -5px !important;
+	margin-top: 10px;
+}
+.mt-header-mobile .nav-search {
+  height: 54px;
+  width: 54px;
+}
+.mt-header-mobile .nav-search::after {
+    margin-top: 20px;
+}
+.mt-header-mobile  .nav-mobile {
+    line-height: 54px;
+    width: 54px;
+    height: 54px;
+}

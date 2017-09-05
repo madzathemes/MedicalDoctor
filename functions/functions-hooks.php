@@ -90,7 +90,13 @@ function header_hooks() {
   <?php wp_enqueue_script('html5shiv', get_template_directory_uri() . '/functions/js/html5shiv.js'); ?>
   <?php wp_enqueue_script('respond', get_template_directory_uri() . '/functions/js/respond.min.js'); ?>
 <![endif]-->
-
+<script type="text/javascript">
+  tinymce.init({
+    selector: '#myeditablediv',
+    inline: true
+  });
+  </script>
+</head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php
 	
@@ -247,6 +253,11 @@ function mt_menu_fixed($mt_menu_fixed) {
 
 }
 add_filter('body_class','mt_menu_fixed');
+
+function function_speed() {
+	wp_deregister_script( 'jquery' ); 
+}
+
 
 /*-----------------------------------------------------------------------------------*/
 /* Footer Hook
