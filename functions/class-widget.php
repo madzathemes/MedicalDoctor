@@ -2,12 +2,6 @@
 
 function madza_sidebar_widget_init() {
 
-$mt_columns = get_option("themename_theme_options");
-
-
-
-
-
 
 /* --------------------------------------------------------------------------------------- Page Widget Area 1 */
 
@@ -40,7 +34,7 @@ $mt_columns = get_option("themename_theme_options");
 
 /* --------------------------------------------------------------------------------------- Woocomerce sidebar area */
 
-if(function_exists( 'is_woocommerce' ) ) { 
+if(function_exists( 'is_woocommerce' ) ) {
 	register_sidebar( array(
 		'name' => __( 'WooCommerce Sidebar', "madza_translate"),
 		'id' => 'sidebar-woocommerce-widget-area',
@@ -54,7 +48,7 @@ if(function_exists( 'is_woocommerce' ) ) {
 
 /* --------------------------------------------------------------------------------------- Woocomerce sidebar area */
 
-if(function_exists( 'is_woocommerce' ) ) { 
+if(function_exists( 'is_woocommerce' ) ) {
 	register_sidebar( array(
 		'name' => __( 'WooCommerce Single Sidebar', "madza_translate"),
 		'id' => 'sidebar-woocommerce-single-widget-area',
@@ -121,9 +115,9 @@ if(function_exists( 'tribe_is_event' ) ) {
 				'before_title' => '<h4 class="widget_h"><span>',
 				'after_title' => '</span></h4>',
 	) );
-}	
-		
-/* --------------------------------------------------------------------------------------- Archive Widget Area 
+}
+
+/* --------------------------------------------------------------------------------------- Archive Widget Area
 
 	register_sidebar( array(
 		'name' => __( 'Archive Page Sidebar Widget Area', "madza_translate"),
@@ -167,14 +161,15 @@ if(function_exists( 'tribe_is_event' ) ) {
 	) );
 
 
+$mt_columns = get_option("themename_theme_options");
 
-
+if(!empty($mt_columns['footer_columns'])) {
 /* --------------------------------------------------------------------------------------- Footer Widget Areas */
 
 if ($mt_columns['footer_columns'] == '1_1' OR $mt_columns['footer_columns'] == '1_2' OR $mt_columns['footer_columns'] == '1_3' OR $mt_columns['footer_columns'] == '1_4' OR
-    $mt_columns['footer_columns'] == '1_5' OR $mt_columns['footer_columns'] == '2_4' OR $mt_columns['footer_columns'] == '4_2') { 
-        
-        
+    $mt_columns['footer_columns'] == '1_5' OR $mt_columns['footer_columns'] == '2_4' OR $mt_columns['footer_columns'] == '4_2') {
+
+
             register_sidebar( array(
         		'name' => __( 'Footer Column 1', "madza_translate"),
         		'id' => 'footer-midle-column-1',
@@ -184,13 +179,13 @@ if ($mt_columns['footer_columns'] == '1_1' OR $mt_columns['footer_columns'] == '
         		'before_title' => '<h2 class="widget_h_3">',
         		'after_title' => '</h2>',
         	) );
-       
+
 }
 
 if ($mt_columns['footer_columns'] == '1_2' OR $mt_columns['footer_columns'] == '1_3' OR $mt_columns['footer_columns'] == '1_4' OR
-    $mt_columns['footer_columns'] == '1_5' OR $mt_columns['footer_columns'] == '2_4' OR $mt_columns['footer_columns'] == '4_2') { 
-        
-        
+    $mt_columns['footer_columns'] == '1_5' OR $mt_columns['footer_columns'] == '2_4' OR $mt_columns['footer_columns'] == '4_2') {
+
+
             register_sidebar( array(
         		'name' => __( 'Footer Column 2', "madza_translate"),
         		'id' => 'footer-midle-column-2',
@@ -200,13 +195,13 @@ if ($mt_columns['footer_columns'] == '1_2' OR $mt_columns['footer_columns'] == '
         		'before_title' => '<h2 class="widget_h_3">',
         		'after_title' => '</h2>',
         	) );
-        
+
 }
 
 if ($mt_columns['footer_columns'] == '1_3' OR $mt_columns['footer_columns'] == '1_4' OR
-    $mt_columns['footer_columns'] == '1_5' OR $mt_columns['footer_columns'] == '2_4' OR $mt_columns['footer_columns'] == '4_2') { 
-        
-     
+    $mt_columns['footer_columns'] == '1_5' OR $mt_columns['footer_columns'] == '2_4' OR $mt_columns['footer_columns'] == '4_2') {
+
+
             register_sidebar( array(
         		'name' => __( 'Footer Column 3' , "madza_translate"),
         		'id' => 'footer-midle-column-3',
@@ -216,12 +211,12 @@ if ($mt_columns['footer_columns'] == '1_3' OR $mt_columns['footer_columns'] == '
         		'before_title' => '<h2 class="widget_h_3">',
         		'after_title' => '</h2>',
         	) );
-        
+
 }
 
 if ($mt_columns['footer_columns'] == '1_4' OR
-    $mt_columns['footer_columns'] == '1_5') { 
-        
+    $mt_columns['footer_columns'] == '1_5') {
+
                    register_sidebar( array(
         		'name' => __( 'Footer Column 4', "madza_translate"),
         		'id' => 'footer-midle-column-4',
@@ -231,12 +226,12 @@ if ($mt_columns['footer_columns'] == '1_4' OR
         		'before_title' => '<h2 class="widget_h_3">',
         		'after_title' => '</h2>',
         	) );
-       
+
 }
 
-if ($mt_columns['footer_columns'] == '1_5') { 
-    
-        
+if ($mt_columns['footer_columns'] == '1_5') {
+
+
             register_sidebar( array(
         		'name' => __( 'Footer Column 5', "madza_translate"),
         		'id' => 'footer-midle-column-5',
@@ -246,7 +241,8 @@ if ($mt_columns['footer_columns'] == '1_5') {
         		'before_title' => '<h2 class="widget_h_3">',
         		'after_title' => '</h2>',
         	) );
-        
+
+}
 }
 }
 

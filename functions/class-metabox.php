@@ -5,10 +5,10 @@
 /*----------------------------------*/
 $mt_o = get_option("themename_theme_options");
 
-if($mt_o['mt_rewrite_doctor']!="") { $mt_cpt_doctor = $mt_o['mt_rewrite_doctor']; } else { $mt_cpt_doctor = "our-doctors";}  
-if($mt_o['mt_rewrite_services']!="") { $mt_cpt_services = $mt_o['mt_rewrite_services']; } else { $mt_cpt_services = "our-services";}  
-if($mt_o['mt_rewrite_causes']!="") { $mt_cpt_causes = $mt_o['mt_rewrite_causes']; } else { $mt_cpt_causes = "our-causes";}  
-if($mt_o['mt_rewrite_portfolio']!="") { $mt_cpt_portfolio = $mt_o['mt_rewrite_portfolio']; } else { $mt_cpt_portfolio = "portfolio";} 
+if(isset($mt_o['mt_rewrite_doctor'])) { $mt_cpt_doctor = $mt_o['mt_rewrite_doctor']; } else { $mt_cpt_doctor = "our-doctors";}
+if(isset($mt_o['mt_rewrite_services'])) { $mt_cpt_services = $mt_o['mt_rewrite_services']; } else { $mt_cpt_services = "our-services";}
+if(isset($mt_o['mt_rewrite_causes'])) { $mt_cpt_causes = $mt_o['mt_rewrite_causes']; } else { $mt_cpt_causes = "our-causes";}
+if(isset($mt_o['mt_rewrite_portfolio'])) { $mt_cpt_portfolio = $mt_o['mt_rewrite_portfolio']; } else { $mt_cpt_portfolio = "portfolio";} 
 
 $mt_cpt_sections = "mt_section";
 
@@ -52,7 +52,7 @@ $patterns = array(
 	array( 	'value' => $l1.'inflicted.png', 'label' => 'inflicted', 'src' => $l2.'inflicted.png' ),
 	array( 	'value' => $l1.'irongrip.png', 'label' => 'irongrip', 'src' => $l2.'irongrip.png' ),
 	array( 	'value' => $l1.'kindajean.png', 'label' => 'kindajean', 'src' => $l2.'kindajean.png' ),
-	array( 	'value' => $l1.'large_leather.png', 'label' => 'large_leather', 'src' => $l2.'large_leather.png' ),	
+	array( 	'value' => $l1.'large_leather.png', 'label' => 'large_leather', 'src' => $l2.'large_leather.png' ),
 	array( 	'value' => $l1.'lghtmesh.png', 'label' => 'lghtmesh', 'src' => $l2.'lghtmesh.png' ),
 	array( 	'value' => $l1.'light_alu.png', 'label' => 'light_alu', 'src' => $l2.'light_alu.png' ),
 	array( 	'value' => $l1.'light_honeycomb.png', 'label' => 'light_honeycomb', 'src' => $l2.'light_honeycomb.png' ),
@@ -122,9 +122,9 @@ $patterns = array(
 		'value'   => '/images/patterns/greyfloral.png',
 		'label'   => 'greyfloral',
 		'src'     => get_template_directory_uri().'/images/patterns/greyfloral.png'
-	)    
-);							      
-						      
+	)
+);
+
 
 /*-----------------------------------------------------------------------------------*/
 /*	EVENT Services Post  -----------------------------------------------------------*/
@@ -143,7 +143,7 @@ global $mt_cpt_services;
     'search_items' => __('Search Service', 'madza_translate'),
     'not_found' =>  __('No Service were found with that criteria', 'madza_translate'),
     'not_found_in_trash' => __('No Service found in the Trash with that criteria', 'madza_translate'),
-    'view' =>  __('View Service', 'madza_translate')   
+    'view' =>  __('View Service', 'madza_translate')
   );
 
   $args = array(
@@ -209,8 +209,8 @@ function mt_service_metabox() {
         'type'        => 'text',
         'class'       => '',
         'choices'     => array()
-         ),   
-         
+         ),
+
          array(
         'id'          => 'mt_portfolio_slider_height',
         'label'       => 'Slider Height (px)',
@@ -220,7 +220,7 @@ function mt_service_metabox() {
         'min_max_step'=> '100,1000,10',
           )
         ,
-        
+
       array(
         'id'          => 'mb_portfolio_slider',
         'label'       => 'Slider Media',
@@ -277,14 +277,14 @@ function mt_service_metabox() {
             'choices' => array()
           )
         )
-        ), 
+        ),
        array(
         'id'          => 'layout_positions',
         'label'       => 'Layouts',
         'desc'        => '',
         'std'         => 'full',
         'type'        => 'radio-image',
-       
+
         'class'       => '',
         'choices'     => array(
         						array(
@@ -301,10 +301,10 @@ function mt_service_metabox() {
 							        'value'   => 'full',
 							        'label'   => '3',
 							        'src'     => get_template_directory_uri().'/images/layout_3.jpg'
-							      )   
-							      
+							      )
+
 							  )
-							  
+
       ),
        array(
         'id'          => 'layout_sidebar',
@@ -342,12 +342,12 @@ function mt_service_metabox() {
         )
         ),
 
-		
+
 
 )
-    
+
   );
-  
+
   ot_register_meta_box( $mt_service_metabox );
 
 }
@@ -378,7 +378,7 @@ global $mt_cpt_sections;
     'search_items' => __('Search Page Section', 'madza_translate'),
     'not_found' =>  __('No Page Section were found with that criteria', 'madza_translate'),
     'not_found_in_trash' => __('No Page Section found in the Trash with that criteria', 'madza_translate'),
-    'view' =>  __('View Page Section', 'madza_translate')   
+    'view' =>  __('View Page Section', 'madza_translate')
   );
 
   $args = array(
@@ -416,8 +416,8 @@ global $patterns;
     'context'   => 'normal',
     'priority'  => 'high',
     'fields'    => array(
-    
-  
+
+
 	     array(
 		        'id'          => 'mt_in_all_pages',
 		        'label'       => 'Show in all pages',
@@ -425,7 +425,7 @@ global $patterns;
 		        'std'         => 'no',
 		        'type'        => 'select',
 		        'class'       => '',
-		        'choices'     => array( 
+		        'choices'     => array(
 				        array(
 				        'value'   => 'no',
 				        'label'   => __( 'Off', 'madza_translate' )
@@ -434,8 +434,8 @@ global $patterns;
 				        'value'   => 'yes',
 				        'label'   => __( 'On', 'madza_translate' )
 				      ))
-	      ),      
-		
+	      ),
+
          array(
         'id'          => 'mt_bg',
         'label'       => 'Background Style',
@@ -445,7 +445,7 @@ global $patterns;
         'class'       => '',
         'choices'     => array()
          ),
-         
+
          array(
 	        'id'          => 'mt_page_section_color_bg_patterns',
 	        'label'       => 'Background Patterns',
@@ -454,16 +454,16 @@ global $patterns;
 	        'type'        => 'radio-image',
 			'class'       => 'mt-patterns',
 	        'choices'     =>  $patterns
-								  
+
 	      ),
-         
+
          array(
 	        'id'          => 'mt_page_section_color_bg_opacity',
 	        'label'       => 'Background opacity',
 	        'desc'        => '',
 	        'std'         => '',
 	        'type'        => 'colorpicker'
-								  
+
 	      ),
 	        array(
         'id'          => 'mt_page_section_color_bg_opacity_strong',
@@ -475,7 +475,7 @@ global $patterns;
         'class'       => '',
         'choices'     => array()
          ),
-         
+
          array(
 		        'id'          => 'mt_paralex_speed_on',
 		        'label'       => 'Background image parallex',
@@ -483,7 +483,7 @@ global $patterns;
 		        'std'         => 'yes',
 		        'type'        => 'select',
 		        'class'       => '',
-		        'choices'     => array( 
+		        'choices'     => array(
 				        array(
 				        'value'   => 'no',
 				        'label'   => __( 'Off', 'madza_translate' )
@@ -492,7 +492,7 @@ global $patterns;
 				        'value'   => 'yes',
 				        'label'   => __( 'On', 'madza_translate' )
 				      ))
-	      ), 
+	      ),
             array(
         'id'          => 'mt_paralex_speed',
         'label'       => 'Parallex Speed',
@@ -523,7 +523,7 @@ global $patterns;
         'class'       => '',
         'choices'     => array()
          ),
-         
+
         array(
         'id'          => 'mt_class',
         'label'       => 'class',
@@ -542,11 +542,11 @@ global $patterns;
         'class'       => '',
         'choices'     => array()
          )
-        
+
      )
-    
+
   );
-  
+
   if (  class_exists( 'OT_Loader' ) ) { ot_register_meta_box( $mt_section_metabox); }
 
 }
@@ -570,7 +570,7 @@ function madza_events() {
     'search_items' => __('Search Event', 'madza_translate'),
     'not_found' =>  __('No Events were found with that criteria', 'madza_translate'),
     'not_found_in_trash' => __('No Events found in the Trash with that criteria', 'madza_translate'),
-    'view' =>  __('View Event', 'madza_translate')   
+    'view' =>  __('View Event', 'madza_translate')
   );
 
   $args = array(
@@ -611,7 +611,7 @@ global $mt_cpt_doctor;
     'search_items' => __('Search Doctor', 'madza_translate'),
     'not_found' =>  __('No Doctor were found with that criteria', 'madza_translate'),
     'not_found_in_trash' => __('No Doctors found in the Trash with that criteria', 'madza_translate'),
-    'view' =>  __('View Doctors', 'madza_translate')   
+    'view' =>  __('View Doctors', 'madza_translate')
   );
 
   $args = array(
@@ -689,7 +689,7 @@ function mt_staff_metabox() {
         'desc'        => '',
         'std'         => '',
         'type'        => 'select',
-       
+
         'class'       => '',
         'choices'     => array(
         						array(
@@ -700,11 +700,11 @@ function mt_staff_metabox() {
 							        'value'   => 'small',
 							        'label'   => 'Small',
 							      )
-							      
+
 							  )
-							  
-      ), 
-        
+
+      ),
+
 #      array(
 #        'id'          => 'mb_portfolio_slider_doctor',
 #        'label'       => 'Slider Media',
@@ -761,7 +761,7 @@ function mt_staff_metabox() {
 #          )
 #        )
 #        ),
-        
+
           array(
         'id'          => 'mt_portfolio_slider_height',
         'label'       => 'Image Height (px)',
@@ -772,14 +772,14 @@ function mt_staff_metabox() {
         'class'       => '',
         'choices'     => array()
           )
-        , 
+        ,
        array(
         'id'          => 'layout_positions',
         'label'       => 'Layouts',
         'desc'        => '',
         'std'         => 'full',
         'type'        => 'radio-image',
-       
+
         'class'       => '',
         'choices'     => array(
         						array(
@@ -796,10 +796,10 @@ function mt_staff_metabox() {
 							        'value'   => 'full',
 							        'label'   => '3',
 							        'src'     => get_template_directory_uri().'/images/layout_3.jpg'
-							      )   
-							      
+							      )
+
 							  )
-							  
+
       ),
        array(
         'id'          => 'layout_sidebar',
@@ -837,12 +837,12 @@ function mt_staff_metabox() {
         )
         ),
 
-		
+
 
 )
-    
+
   );
-  
+
   ot_register_meta_box( $mt_staff_metabox );
 
 }
@@ -875,7 +875,7 @@ function madza_partners() {
     'search_items' => __('Search Partner', 'madza_translate'),
     'not_found' =>  __('No Partner were found with that criteria', 'madza_translate'),
     'not_found_in_trash' => __('No Partner found in the Trash with that criteria', 'madza_translate'),
-    'view' =>  __('View Partner', 'madza_translate')   
+    'view' =>  __('View Partner', 'madza_translate')
   );
 
   $args = array(
@@ -917,7 +917,7 @@ global $mt_cpt_causes;
     'search_items' => __('Search Cause', 'madza_translate'),
     'not_found' =>  __('No Causes were found with that criteria', 'madza_translate'),
     'not_found_in_trash' => __('No Causes found in the Trash with that criteria', 'madza_translate'),
-    'view' =>  __('View Cause', 'madza_translate')   
+    'view' =>  __('View Cause', 'madza_translate')
   );
 
   $args = array(
@@ -959,7 +959,7 @@ function madza_sidebar() {
     'search_items' => __('Search Sidebar', 'madza_translate'),
     'not_found' =>  __('No sidebar were found with that criteria', 'madza_translate'),
     'not_found_in_trash' => __('No sidebar found in the Trash with that criteria', 'madza_translate'),
-    'view' =>  __('View Item', 'madza_translate')   
+    'view' =>  __('View Item', 'madza_translate')
   );
 
   $args = array(
@@ -1003,7 +1003,7 @@ global $mt_cpt_portfolio;
     'search_items' => __('Search Portfolio Items', 'madza_translate'),
     'not_found' =>  __('No portfolio items were found with that criteria', 'madza_translate'),
     'not_found_in_trash' => __('No portfolio items found in the Trash with that criteria', 'madza_translate'),
-    'view' =>  __('View Item', 'madza_translate')   
+    'view' =>  __('View Item', 'madza_translate')
   );
 
   $args = array(
@@ -1063,14 +1063,14 @@ function custom_meta_boxes4() {
     'context'   => 'normal',
     'priority'  => 'high',
     'fields'    => array(
-     
+
       array(
         'id'          => 'layout_positions4',
         'label'       => 'Layouts',
         'desc'        => '',
         'std'         => 'sidebar_1',
         'type'        => 'radio-image',
-       
+
         'class'       => '',
         'choices'     => array(
         						array(
@@ -1087,8 +1087,8 @@ function custom_meta_boxes4() {
 							      #  'value'   => 'full',
 							      #  'label'   => '7',
 							      #  'src'     => get_template_directory_uri().'/images/layout_7.jpg'
-							      #)   
-							      
+							      #)
+
 							  )
 		),
 		array(
@@ -1102,7 +1102,7 @@ function custom_meta_boxes4() {
         'choices'     => array()
           )
         ,
-        
+
       array(
         'id'          => 'mb_portfolio_slider',
         'label'       => 'Slider Media',
@@ -1221,9 +1221,9 @@ function custom_meta_boxes4() {
         )
 
 )
-    
+
   );
-  
+
   ot_register_meta_box( $my_meta_box4 );
 
 }
@@ -1250,7 +1250,7 @@ function custom_meta_boxes_staff() {
     'context'   => 'normal',
     'priority'  => 'high',
     'fields'    => array(
-	    
+
 	    array(
         'id'          => 'mt_staff_description',
         'label'       => 'Small Description',
@@ -1260,7 +1260,7 @@ function custom_meta_boxes_staff() {
         'class'       => '',
         'choices'     => array()
          ),
-                
+
 		array(
         'id'          => 'mt_staff_phone',
         'label'       => 'Phone',
@@ -1288,11 +1288,11 @@ function custom_meta_boxes_staff() {
         'class'       => '',
         'choices'     => array()
          ),
-        
+
      )
-    
+
   );
-  
+
   ot_register_meta_box( $custom_meta_boxes_staff);
 
 }
@@ -1309,7 +1309,7 @@ function custom_meta_boxes_events() {
     'context'   => 'normal',
     'priority'  => 'high',
     'fields'    => array(
-	    
+
 	    array(
         'id'          => 'mt_event_location',
         'label'       => 'Location',
@@ -1319,7 +1319,7 @@ function custom_meta_boxes_events() {
         'class'       => '',
         'choices'     => array()
          ),
-                
+
 		array(
         'id'          => 'mt_event_time',
         'label'       => 'Time',
@@ -1377,7 +1377,7 @@ function custom_meta_boxes_events() {
 							        'value'   => '2020',
 							        'label'   => '2020',
 							    )
-							    
+
 							    )
          ),
           array(
@@ -1569,17 +1569,17 @@ function custom_meta_boxes_events() {
 							      array(
 							        'value'   => '31',
 							        'label'   => '31',
-							      )              
-							      
+							      )
+
 							  )
-							  
+
       ),
          ),
-        
-     
-    
+
+
+
   );
-  
+
   ot_register_meta_box( $custom_meta_boxes_events);
 
 }
@@ -1598,7 +1598,7 @@ function custom_meta_boxes_partners() {
     'context'   => 'normal',
     'priority'  => 'high',
     'fields'    => array(
-	           
+
 		array(
         'id'          => 'mt_partners_url',
         'label'       => 'Partner URL',
@@ -1608,11 +1608,11 @@ function custom_meta_boxes_partners() {
         'class'       => '',
         'choices'     => array()
           )
-        
+
      )
-    
+
   );
-  
+
   ot_register_meta_box( $custom_meta_boxes_partners);
 
 }
@@ -1634,7 +1634,7 @@ add_action( 'admin_init', 'custom_meta_boxes_causes' );
 	    'context'   => 'normal',
 	    'priority'  => 'high',
 	    'fields'    => array(
-		    
+
 		    array(
 	        'id'          => 'mt_causes_button_name',
 	        'label'       => 'Donation Button Name',
@@ -1643,7 +1643,7 @@ add_action( 'admin_init', 'custom_meta_boxes_causes' );
 	        'type'        => 'text',
 	        'class'       => '',
 	        'choices'     => array()
-	         ),       
+	         ),
 			array(
 	        'id'          => 'mt_causes_button_url',
 	        'label'       => 'Donation Button URL',
@@ -1659,7 +1659,7 @@ add_action( 'admin_init', 'custom_meta_boxes_causes' );
 		        'desc'        => '',
 		        'std'         => '',
 		        'type'        => 'select',
-		       
+
 		        'class'       => '',
 		        'choices'     => array(
 		        						array(
@@ -1670,11 +1670,11 @@ add_action( 'admin_init', 'custom_meta_boxes_causes' );
 									        'value'   => 'small',
 									        'label'   => 'Small',
 									      )
-									      
+
 									  )
-									  
+
 		     ),
-		     
+
 	          array(
 		        'id'          => 'mt_portfolio_slider_heigh',
 		        'label'       => 'Image Height (px) - in cause template',
@@ -1695,20 +1695,20 @@ add_action( 'admin_init', 'custom_meta_boxes_causes' );
 		        'class'       => '',
 		        'choices'     => array()
 	          )
-	        
-	     
-	        
+
+
+
 	     )
-	    
+
 	  );
-  
+
   ot_register_meta_box( $my_meta_box_causes );
 
 }
 
 
 function filter_radio_images( $array, $field_id ) {
-  
+
   /* only run the filter where the field ID is my_radio_images */
   if ( $field_id == 'my_radio_images' ) {
     $array = array(
@@ -1724,9 +1724,9 @@ function filter_radio_images( $array, $field_id ) {
       )
     );
   }
-  
+
   return $array;
-  
+
 }
 
 
@@ -1746,7 +1746,7 @@ function custom_meta_boxes_sta() {
     'context'   => 'normal',
     'priority'  => 'high',
     'fields'    => array(
-	           
+
 		array(
         'id'          => 'mt_portfolio_slider_heightstan',
         'label'       => 'Image Height (px)',
@@ -1756,11 +1756,11 @@ function custom_meta_boxes_sta() {
         'class'       => '',
         'choices'     => array()
           )
-        
+
      )
-    
+
   );
-  
+
   ot_register_meta_box( $my_meta_box_sta );
 
 }
@@ -1788,7 +1788,7 @@ function custom_meta_boxes_image() {
         'class'       => '',
         'choices'     => array()
           ),
-      
+
           array(
         'id'          => 'mt_portfolio_format_image_url',
         'label'       => 'URL',
@@ -1804,7 +1804,7 @@ function custom_meta_boxes_image() {
         'std'         => 'off',
         'type'        => 'select',
         'class'       => '',
-        'choices'     => array( 
+        'choices'     => array(
         array(
         'value'   => 'on',
         'label'   => __( 'On', 'madza_translate' )
@@ -1821,7 +1821,7 @@ function custom_meta_boxes_image() {
         'std'         => 'on',
         'type'        => 'select',
         'class'       => '',
-        'choices'     => array( 
+        'choices'     => array(
         array(
         'value'   => 'on',
         'label'   => __( 'On', 'madza_translate' )
@@ -1831,9 +1831,9 @@ function custom_meta_boxes_image() {
         'label'   => __( 'Off', 'madza_translate' )
       ))
       ),)
-    
+
   );
-  
+
   ot_register_meta_box( $my_meta_box_image );
 
 }
@@ -1852,7 +1852,7 @@ function custom_meta_boxes_image() {
 #    'context'   => 'normal',
 #    'priority'  => 'high',
 #    'fields'    => array(
-#	           
+#
 #         array(
 #            'id'      => 'slider_embed',
 #            'label'   => 'Embed Code',
@@ -1890,12 +1890,12 @@ function custom_meta_boxes_image() {
 #            'choices' => array()
 #          )
 #        )
-        
-        
 
-    
+
+
+
 #  );
-  
+
 #  ot_register_meta_box( $my_meta_box_au );
 
 #}
@@ -1914,7 +1914,7 @@ function custom_meta_boxes_vid() {
     'context'   => 'normal',
     'priority'  => 'high',
     'fields'    => array(
-	           
+
           array(
             'id'      => 'slider_embed_post',
             'label'   => 'Embed Code',
@@ -1932,7 +1932,7 @@ function custom_meta_boxes_vid() {
             'type'    => 'text',
             'class'   => '',
             'choices' => array()
-          ),          
+          ),
           array(
             'id'      => 'slider_m4v_post',
             'label'   => 'Mp4 File URL',
@@ -1961,12 +1961,12 @@ function custom_meta_boxes_vid() {
             'choices' => array()
           )
         )
-        
-        
 
-    
+
+
+
   );
-  
+
   ot_register_meta_box( $my_meta_box_vid );
 
 }
@@ -1985,7 +1985,7 @@ function custom_meta_boxes_quo() {
     'context'   => 'normal',
     'priority'  => 'high',
     'fields'    => array(
-	           
+
 		array(
         'id'          => 'mt_portfolio_format_quo_url',
         'label'       => 'Link URL',
@@ -1994,11 +1994,11 @@ function custom_meta_boxes_quo() {
         'class'       => '',
         'choices'     => array()
           )
-        
+
 )
-    
+
   );
-  
+
   ot_register_meta_box( $my_meta_box_quo );
 
 }
@@ -2018,7 +2018,7 @@ function custom_meta_boxes_links() {
     'context'   => 'normal',
     'priority'  => 'high',
     'fields'    => array(
-	           
+
 		array(
         'id'          => 'mt_portfolio_format_link_url',
         'label'       => 'Link URL',
@@ -2027,11 +2027,11 @@ function custom_meta_boxes_links() {
         'class'       => '',
         'choices'     => array()
           )
-        
+
 )
-    
+
   );
-  
+
   ot_register_meta_box( $my_meta_box_links );
 
 }
@@ -2049,7 +2049,7 @@ function custom_meta_boxes9() {
     'context'   => 'normal',
     'priority'  => 'high',
     'fields'    => array(
-	           
+
 		array(
         'id'          => 'mt_portfolio_slider_height2',
         'label'       => 'Slider Height (px)',
@@ -2060,7 +2060,7 @@ function custom_meta_boxes9() {
         'choices'     => array()
           )
         ,
-        
+
       array(
         'id'          => 'mb_portfolio_slider',
         'label'       => 'Slider Media',
@@ -2083,9 +2083,9 @@ function custom_meta_boxes9() {
         )
         )
 )
-    
+
   );
-  
+
   ot_register_meta_box( $my_meta_box9 );
 
 }
@@ -2108,14 +2108,14 @@ function custom_meta_boxes2() {
     'context'   => 'normal',
     'priority'  => 'high',
     'fields'    => array(
-     
+
       array(
         'id'          => 'layout_positions',
         'label'       => 'Layouts',
         'desc'        => '',
         'std'         => 'full',
         'type'        => 'radio-image',
-       
+
         'class'       => '',
         'choices'     => array(
         						array(
@@ -2132,10 +2132,10 @@ function custom_meta_boxes2() {
 							        'value'   => 'full',
 							        'label'   => '3',
 							        'src'     => get_template_directory_uri().'/images/layout_3.jpg'
-							      )   
-							      
+							      )
+
 							  )
-							  
+
       ),
        array(
         'id'          => 'layout_sidebar',
@@ -2179,7 +2179,7 @@ function custom_meta_boxes2() {
 		        'std'         => 'yes',
 		        'type'        => 'select',
 		        'class'       => '',
-		        'choices'     => array( 
+		        'choices'     => array(
 				        array(
 				        'value'   => 'no',
 				        'label'   => __( 'Off', 'madza_translate' )
@@ -2196,7 +2196,7 @@ function custom_meta_boxes2() {
 		        'std'         => 'yes',
 		        'type'        => 'select',
 		        'class'       => '',
-		        'choices'     => array( 
+		        'choices'     => array(
 				        array(
 				        'value'   => 'no',
 				        'label'   => __( 'Off', 'madza_translate' )
@@ -2208,7 +2208,7 @@ function custom_meta_boxes2() {
 	      ),
     )
   );
-  
+
   ot_register_meta_box( $my_meta_box2 );
 
 }
@@ -2226,7 +2226,7 @@ global $patterns;
     'context'   => 'normal',
     'priority'  => 'high',
     'fields'    => array(
-    
+
     array(
         'id'          => 'mt_colors_page_2',
         'label'       => 'Page Colors',
@@ -2249,32 +2249,32 @@ global $patterns;
         'post_type'   => '',
         'taxonomy'    => '',
         'class'       => '',
-        'choices'     => array( 
+        'choices'     => array(
           array(
             'value'       => '',
             'label'       => 'Default',
             'src'         => ''
-          ), 
+          ),
           #array(
           #  'value'       => 'free',
           #  'label'       => 'Boxed and Spaced Layout',
           #  'src'         => ''
-          #), 
+          #),
           array(
             'value'       => 'box',
             'label'       => 'Boxed Layout',
             'src'         => ''
-          ), 
+          ),
           array(
             'value'       => 'full',
             'label'       => 'Full Width Layout',
             'src'         => ''
-          ),  
+          ),
           #array(
           #  'value'       => 'full_free',
           #  'label'       => 'Full Width and Spaced Layout',
           #  'src'         => ''
-          #),           
+          #),
          ),
       ),
       array(
@@ -2286,7 +2286,7 @@ global $patterns;
         'class'       => '',
         'choices'     => array()
       ),
-       
+
       array(
 	        'id'          => 'mt_page_page_color_bg_patterns',
 	        'label'       => 'Page Background Patterns',
@@ -2295,9 +2295,9 @@ global $patterns;
 	        'type'        => 'radio-image',
 			'class'       => 'mt-patterns',
 	        'choices'     =>  $patterns
-								  
-	  ),   
-   
+
+	  ),
+
       array(
         'id'          => 'm_title_on',
         'label'       => 'Page Title',
@@ -2305,7 +2305,7 @@ global $patterns;
         'std'         => 'on',
         'type'        => 'select',
         'class'       => '',
-        'choices'     => array( 
+        'choices'     => array(
         array(
         'value'   => 'on',
         'label'   => __( 'On', 'madza_translate' )
@@ -2324,7 +2324,7 @@ global $patterns;
       #  'class'       => '',
       #  'choices'     => array()
       #),
-      
+
       array(
         'id'          => 'm_title_backgrounds',
         'label'       => 'Page Title Background',
@@ -2334,7 +2334,7 @@ global $patterns;
         'class'       => '',
         'choices'     => array()
       ),
-      
+
       array(
 	        'id'          => 'mt_page_title_color_bg_patterns',
 	        'label'       => 'Title Background Patterns',
@@ -2343,9 +2343,9 @@ global $patterns;
 	        'type'        => 'radio-image',
 			'class'       => 'mt-patterns',
 	        'choices'     =>  $patterns
-								  
+
 	 ),
-      
+
       array(
         'id'          => 'm_title_bred',
         'label'       => 'Page Breadcrumb',
@@ -2375,34 +2375,34 @@ global $patterns;
         'post_type'   => '',
         'taxonomy'    => '',
         'class'       => '',
-        'choices'     => array( 
-        
+        'choices'     => array(
+
         array(
             'value'       => 'style_default',
             'label'       => 'Default',
             'src'         => ''
           ),
-          
+
           array(
             'value'       => 'style_1',
             'label'       => 'Style 1',
             'src'         => ''
-          ), 
+          ),
           array(
             'value'       => 'style_2',
             'label'       => 'Style 2',
             'src'         => ''
-          ), 
+          ),
           array(
             'value'       => 'style_3',
             'label'       => 'Style 3',
             'src'         => ''
-          ),  
+          ),
           array(
             'value'       => 'style_4',
             'label'       => 'Style 4',
             'src'         => ''
-          ),           
+          ),
          ),
       ),
     array(
@@ -2416,33 +2416,33 @@ global $patterns;
         'post_type'   => '',
         'taxonomy'    => '',
         'class'       => '',
-        'choices'     => array( 
-        
+        'choices'     => array(
+
         array(
             'value'       => 'style_default',
             'label'       => 'Default',
             'src'         => ''
           ),
-          
+
           array(
             'value'       => 'yes',
             'label'       => 'Yes',
             'src'         => ''
-          ), 
+          ),
           array(
             'value'       => 'no',
             'label'       => 'No',
             'src'         => ''
-          )           
+          )
          )
       )
-      
-      
-    
-    
+
+
+
+
     )
   );
-  
+
   ot_register_meta_box( $my_meta_box );
 
 }
@@ -2478,9 +2478,9 @@ global $patterns;
 	        'value'   => 'shortcode_slider',
 	        'label'   => __( 'Slider from Shortcode', 'madza_translate' )
 	      )
-	      
+
 	      )
-	
+
 	    ),
 	   # array(
        # 'id'          => 'mt_page_slider_height',
@@ -2491,9 +2491,9 @@ global $patterns;
        # 'class'       => '',
        # 'choices'     => array()
        # ),
-      
-        
-        
+
+
+
          array(
         'id'          => 'mt_page_slider',
         'label'       => 'Images',
@@ -2540,7 +2540,7 @@ global $patterns;
             'class'   => '',
             'choices' => array()
           ),
-          
+
           array(
 	        'id'          => 'mt_page_slider_position',
 	        'label'       => 'Slide Content Position',
@@ -2557,13 +2557,13 @@ global $patterns;
 			        'value'   => 'right',
 			        'label'   => __( 'Right Style', 'madza_translate' )
 			      )
-			      
+
 			      )
-	
+
 	    )
         )
       ),
-      
+
       array(
 	        'id'          => 'mt_page_slider_color',
 	        'label'       => 'Glass Slider Color Type',
@@ -2580,9 +2580,9 @@ global $patterns;
 			        'value'   => 'dark',
 			        'label'   => __( 'Dark Style', 'madza_translate' )
 			      )
-			      
+
 			      )
-	
+
 	    ),
 
 
@@ -2595,7 +2595,7 @@ global $patterns;
         'class'       => '',
         'choices'     => array()
          ),
-        
+
         array(
 	        'id'          => 'mt_page_slider_color_bg_patterns',
 	        'label'       => 'Slider Background Patterns',
@@ -2604,9 +2604,9 @@ global $patterns;
 	        'type'        => 'radio-image',
 			'class'       => 'mt-patterns',
 	        'choices'     =>  $patterns
-								  
+
 	      ),
-	     
+
         array(
         'id'          => 'mt_page_slider_shortcode',
         'label'       => 'Slider Shortcode',
@@ -2616,7 +2616,7 @@ global $patterns;
         'class'       => '',
         'choices'     => array()
       ),
-      
+
         )
 );
 
@@ -2643,7 +2643,7 @@ function mt_template() {
     'context'   => 'normal',
     'priority'  => 'default',
     'fields'    => array(
-    		
+
     		array(
             'id'      => 'mt_template_item_pp',
             'label'   => 'Items per page',
@@ -2653,7 +2653,7 @@ function mt_template() {
             'class'   => '',
             'choices' => array()
             ),
-            
+
             array(
             'id'          => 'mt_blog_category',
             'label'       => 'Category for Blog template',
@@ -2664,7 +2664,7 @@ function mt_template() {
             'taxonomy'    => 'category',
             'class'       => ''
             ),
-            
+
             array(
             'id'          => 'mt_portfolio_category',
             'label'       => 'Category for Portfolio template',
@@ -2675,7 +2675,7 @@ function mt_template() {
             'taxonomy'    => 'portfolio_cat',
             'class'       => ''
             ),
-          
+
     		array(
 	        'id'          => 'mt_template_columns',
 	        'label'       => 'Columns for Portfolio template',
@@ -2685,7 +2685,7 @@ function mt_template() {
 	        'post_type'   => '',
 	        'taxonomy'    => '',
 	        'class'       => '',
-	        'choices'     => array( 
+	        'choices'     => array(
 	          array(
 	            'value'       => '4',
 	            'label'       => '4 Columns',
@@ -2705,7 +2705,7 @@ function mt_template() {
 	            'value'       => '1',
 	            'label'       => '1 Columns',
 	            'src'         => ''
-	          )     
+	          )
 	         )
 	      ),
 	      array(
@@ -2717,7 +2717,7 @@ function mt_template() {
 	        'post_type'   => '',
 	        'taxonomy'    => '',
 	        'class'       => '',
-	        'choices'     => array( 
+	        'choices'     => array(
 	          array(
 	            'value'       => 'permalink',
 	            'label'       => 'Permalink',
@@ -2727,7 +2727,7 @@ function mt_template() {
 	            'value'       => 'lightbox',
 	            'label'       => 'Lightbox',
 	            'src'         => ''
-	          )     
+	          )
 	         )
 	      ),
 	      array(
@@ -2739,7 +2739,7 @@ function mt_template() {
 	        'post_type'   => '',
 	        'taxonomy'    => '',
 	        'class'       => '',
-	        'choices'     => array( 
+	        'choices'     => array(
 	          array(
 	            'value'       => 'sorting',
 	            'label'       => 'Sorting',
@@ -2749,13 +2749,13 @@ function mt_template() {
 	            'value'       => 'none',
 	            'label'       => 'none',
 	            'src'         => ''
-	          )     
+	          )
 	         )
 	      )
       )
 
     );
-  
+
   ot_register_meta_box( $mt_template );
 
 }

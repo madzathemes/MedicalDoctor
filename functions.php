@@ -58,8 +58,6 @@ include_once ('functions/functions-general.php');
 include_once ('functions/functions-customizer.php');
 include_once ('functions/plugins/glass-slider/glass-slider.php');
 include_once ('functions/plugins/aq_resizer.php');
-include_once ('functions/import/madza-import.php');
-include_once ('functions/import/madza-export.php');
 
 /*-----------------------------------------------------------------------------------*/
 /* Madza Theme Setup
@@ -256,7 +254,7 @@ function my_theme_register_required_plugins() {
             'slug'			=> 'js_composer', // The plugin slug (typically the folder name)
             'source'			=> get_stylesheet_directory() . '/all_plugins/js_composer.zip', // The plugin source
             'required'			=> true, // If false, the plugin is only 'recommended' instead of required
-            'version'			=> '5.0.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+            'version'			=> '5.2.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
             'force_activation'		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
             'force_deactivation'	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
             'external_url'		=> '', // If set, overrides default API URL and points to an external URL
@@ -271,7 +269,7 @@ function my_theme_register_required_plugins() {
             'slug'			=> 'LayerSlider', // The plugin slug (typically the folder name)
             'source'			=> get_stylesheet_directory() . '/all_plugins/LayerSlider.zip', // The plugin source
             'required'			=> true, // If false, the plugin is only 'recommended' instead of required
-            'version'			=> '6.1.0', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+            'version'			=> '6.5.0', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
             'force_activation'		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
             'force_deactivation'	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
             'external_url'		=> '', // If set, overrides default API URL and points to an external URL
@@ -281,12 +279,28 @@ function my_theme_register_required_plugins() {
 					'slug'     				=> 'easyreservations', // The plugin slug (typically the folder name)
 					'required' 				=> false, // If false, the plugin is only 'recommended' instead of required
 				),
+				array(
+        			'name'     				=>  "One Click Demo Import", // The plugin name
+        			'slug'     				=> 'one-click-demo-import', // The plugin slug (typically the folder name)
+        			'required' 				=> true, // If false, the plugin is only 'recommended' instead of required
+              'force_activation'		=> false,
+        ),
+				array(
+            'name'			=> "Envato Market", // The plugin name
+            'slug'			=> 'envato-market', // The plugin slug (typically the folder name)
+            'source'			=> get_template_directory() . '/all_plugins/envato-market.zip', // The plugin source
+            'required'			=> true, // If false, the plugin is only 'recommended' instead of required
+            'version'			=> '1.0', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+            'force_activation'		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
+            'force_deactivation'	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
+            'external_url'		=> '', // If set, overrides default API URL and points to an external URL
+        ),
         array(
             'name'			=> 'Timetable Responsive Schedule For WordPress', // The plugin name
             'slug'			=> 'timetable', // The plugin slug (typically the folder name)
             'source'			=> get_stylesheet_directory() . '/all_plugins/timetable.zip', // The plugin source
             'required'			=> true, // If false, the plugin is only 'recommended' instead of required
-            'version'			=> '3.8', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+            'version'			=> '4.0', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
             'force_activation'		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
             'force_deactivation'	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
             'external_url'		=> '', // If set, overrides default API URL and points to an external URL
@@ -294,10 +308,7 @@ function my_theme_register_required_plugins() {
 
     );
 
-    // Change this to your theme text domain, used for internationalising strings
-    $theme_text_domain = 'tgmpa';
-
-    /**
+		/**
      * Array of configuration settings. Amend each line as needed.
      * If you want the default strings to be available under your own theme domain,
      * leave the strings uncommented.
@@ -305,32 +316,14 @@ function my_theme_register_required_plugins() {
      * end of each line for what each argument will be.
      */
     $config = array(
-        'domain'            => $theme_text_domain,           // Text domain - likely want to be the same as your theme.
-        'default_path'      => '',                           // Default absolute path to pre-packaged plugins
-        'parent_slug'  => 'themes.php',         // Default parent menu slug
-        'menu'              => 'install-required-plugins',   // Menu slug
-        'has_notices'       => true,                         // Show admin notices or not
-        'is_automatic'      => true,            // Automatically activate plugins after installation or not
-        'message'           => '',               // Message to output right before the plugins table
-        'strings'           => array(
-            'page_title'                                => __( 'Install Required Plugins', $theme_text_domain ),
-            'menu_title'                                => __( 'Install Plugins', $theme_text_domain ),
-            'installing'                                => __( 'Installing Plugin: %s', $theme_text_domain ), // %1$s = plugin name
-            'oops'                                      => __( 'Something went wrong with the plugin API.', $theme_text_domain ),
-            'notice_can_install_required'               => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ), // %1$s = plugin name(s)
-            'notice_can_install_recommended'            => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ), // %1$s = plugin name(s)
-            'notice_cannot_install'                     => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s)
-            'notice_can_activate_required'              => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
-            'notice_can_activate_recommended'           => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
-            'notice_cannot_activate'                    => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ), // %1$s = plugin name(s)
-            'notice_ask_to_update'                      => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ), // %1$s = plugin name(s)
-            'notice_cannot_update'                      => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s)
-            'install_link'                              => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
-            'activate_link'                             => _n_noop( 'Activate installed plugin', 'Activate installed plugins' ),
-            'return'                                    => __( 'Return to Required Plugins Installer', $theme_text_domain ),
-            'plugin_activated'                          => __( 'Plugin activated successfully.', $theme_text_domain ),
-            'complete'                                  => __( 'All plugins installed and activated successfully. %s', $theme_text_domain ) // %1$s = dashboard link
-        )
+      'id'           => 'xnews',                // Unique ID for hashing notices for multiple instances of TGMPA.
+      'default_path' => '',                      // Default absolute path to bundled plugins.
+      'menu'         => 'tgmpa-install-plugins', // Menu slug.
+      'has_notices'  => true,                    // Show admin notices or not.
+      'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
+      'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
+      'is_automatic' => false,                   // Automatically activate plugins after installation or not.
+      'message'      => '',
     );
 
     tgmpa( $plugins, $config );
@@ -382,7 +375,8 @@ endif;
 
 $mt_options = get_option("themename_theme_options");
 
-if($mt_options['mt_responsive']=='responsive_no') {
+if(!empty($mt_options['mt_responsive'])) {
+	if($mt_options['mt_responsive']=='responsive_no') {
 
 	$col_2 = " col-xs-2 col-sm-2 ";
 	$col_3 = " col-xs-3 col-sm-3 ";
@@ -393,6 +387,19 @@ if($mt_options['mt_responsive']=='responsive_no') {
 	$col_8 = " col-xs-8 col-sm-8 ";
 	$col_9 = " col-xs-9 col-sm-9 ";
 	$col_10 = " col-xs-10 col-sm-10 ";
+
+	} else {
+
+		$col_2 = "";
+		$col_3 = "";
+		$col_4 = "";
+		$col_5 = "";
+		$col_6 = "";
+		$col_7 = "";
+		$col_8 = "";
+		$col_9 = "";
+		$col_10 = "";
+	}
 
 } else {
 
@@ -422,5 +429,46 @@ if (class_exists('WPBakeryVisualComposerAbstract')) {
     add_action('init', 'requireVcExtend',2);
 }
 
+
+function xnews_import_files() {
+    return array(
+        array(
+            'import_file_name'             => esc_html__( 'Demo 1', 'xnews' ),
+            'local_import_file'            => trailingslashit( get_template_directory() ) . 'functions/import/demo1/demo.xml',
+            'local_import_widget_file'     => trailingslashit( get_template_directory() ) . 'functions/import/demo1/widgets.json',
+            'local_import_customizer_file' => trailingslashit( get_template_directory() ) . 'functions/import/demo1/customizer.dat',
+            'import_notice'                => esc_html__( 'Customize this theme from Appearance/Customize', 'xnews' ),
+        )
+    );
+}
+add_filter( 'pt-ocdi/import_files', 'xnews_import_files' );
+
+// If user agree change front page layots
+function xnews_after_import_setup() {
+// Assign menus to their locations.
+$main_menu = get_term_by( 'name', 'Header', 'nav_menu' );
+$mobile_menu = get_term_by( 'name', 'Mobile Menu', 'nav_menu' );
+$top_menu = get_term_by( 'name', 'Footer Menu', 'nav_menu' );
+$footer_menu = get_term_by( 'name', 'Footer Menu', 'nav_menu' );
+
+    set_theme_mod( 'nav_menu_locations', array(
+            'primary' => $main_menu->term_id,
+						'mobile' => $mobile_menu->term_id,
+						'top_menu' => $top_menu->term_id,
+						'footer_menu' => $footer_menu->term_id,
+        )
+    );
+
+// Delete sapmle post if site is fresh install
+wp_delete_post(1);
+
+    // Assign front page and posts page (blog page).
+    $front_page_id = get_page_by_title( 'News' );
+
+    update_option( 'show_on_front', 'page' );
+    update_option( 'page_on_front', $front_page_id->ID );
+
+}
+add_action( 'pt-ocdi/after_import', 'xnews_after_import_setup' );
 
 ?>

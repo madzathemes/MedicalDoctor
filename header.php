@@ -57,16 +57,21 @@ if(!empty($mt_options["mt_mobile_s"])){ if($mt_options["mt_mobile_s"]=="new"){ ?
 <div class="mt-header-space hidden-lg hidden-md"></div>
 <?php }}
 
-if($mt_options['mt_responsive']=='responsive_no') {
+if(!empty($mt_options['mt_responsive'])) {
+  if($mt_options['mt_responsive']=='responsive_no') {
 
-	$mt_mobile = "hidden-lg hidden-md hidden-sm hidden-xs";
-	$mt_destop = "";
+  	$mt_mobile = "hidden-lg hidden-md hidden-sm hidden-xs";
+  	$mt_destop = "";
 
+  } else {
+
+  	$mt_mobile = "hidden-lg hidden-md";
+  	$mt_destop = "hidden-sm hidden-xs";
+
+  }
 } else {
-
-	$mt_mobile = "hidden-lg hidden-md";
+  $mt_mobile = "hidden-lg hidden-md";
 	$mt_destop = "hidden-sm hidden-xs";
-
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -92,7 +97,7 @@ if ( ! empty( $_bacground_image_page )) {
 
 if($_background_exist_r =="no") {
 
-	if ( ! empty( $mt_homepage_bg_p_image )) {
+	if ( !empty( $mt_homepage_bg_p_image['background_repeat'] ) and  !empty( $mt_homepage_bg_p_image['image_upload_test'] ) ) {
 				if($mt_homepage_bg_p_image['background_repeat']=="full") {
 					?><img id="background" src="<?php echo $mt_homepage_bg_p_image['image_upload_test']; ?>" alt=""  /><?php
 
@@ -113,9 +118,9 @@ function mt_logo() {
 	if($mt_options['mt_logo']!="") { $logo_image = $mt_options['mt_logo']; } else { $logo_image = get_template_directory_uri()."/images/medicaldoctor_logo.gif";  }
 
 	?>
-	<a style="margin-top:<?php if($mt_options['mt_logo_t']!="") { echo $mt_options['mt_logo_t']; } else { echo "15"; } ?>px; margin-bottom:<?php if($mt_options['mt_logo_b']!="") { echo $mt_options['mt_logo_b']; } else { echo "15"; } ?>px" class="logo" href="<?php echo home_url();?>">
+	<a style="margin-top:<?php if(!empty($mt_options['mt_logo_t'])) { echo $mt_options['mt_logo_t']; } else { echo "15"; } ?>px; margin-bottom:<?php if(!empty($mt_options['mt_logo_b'])) { echo $mt_options['mt_logo_b']; } else { echo "15"; } ?>px" class="logo" href="<?php echo home_url();?>">
 
-		<img width="<?php if($mt_options['mt_logo_w']!="") { echo $mt_options['mt_logo_w']; } else { echo "230"; } ?>" height="<?php if($mt_options['mt_logo_h']!="") { echo $mt_options['mt_logo_h']; } else { echo "50"; } ?>" src="<?php echo $logo_image; ?>"  alt="<?php bloginfo('name'); ?>" />
+		<img width="<?php if(!empty($mt_options['mt_logo_w'])) { echo $mt_options['mt_logo_w']; } else { echo "230"; } ?>" height="<?php if(!empty($mt_options['mt_logo_h'])) { echo $mt_options['mt_logo_h']; } else { echo "50"; } ?>" src="<?php echo $logo_image; ?>"  alt="<?php bloginfo('name'); ?>" />
 
 	</a>
 
@@ -172,20 +177,20 @@ function mt_social() {
 
 		$mt_options = get_option("themename_theme_options");
 
-		if($mt_options['mt_icon_facebook']!="") {?><li><a class="mt-soc-facebook" href="<?php echo $mt_options['mt_icon_facebook']; ?>"><i class="fa fa-facebook"></i></a></li><?php }
-		if($mt_options['mt_icon_twitter']!="") {?><li><a class="mt-soc-twitter" href="<?php echo $mt_options['mt_icon_twitter']; ?>"><i class="fa fa-twitter"></i></a></li><?php }
-		if($mt_options['mt_icon_vimeo']!="") {?><li><a class="mt-soc-vimeo" href="<?php echo $mt_options['mt_icon_vimeo']; ?>"><i class="fa fa-vimeo-square"></i></a></li><?php }
-		if($mt_options['mt_icon_youtube']!="") {?><li><a class="mt-soc-youtube" href="<?php echo $mt_options['mt_icon_youtube']; ?>"><i class="fa fa-youtube"></i></a></li><?php }
-		if($mt_options['mt_icon_linkedin']!="") {?><li><a class="mt-soc-linkedin" href="<?php echo $mt_options['mt_icon_linkedin']; ?>"><i class="fa fa-linkedin"></i></a></li><?php }
-		if($mt_options['mt_icon_gplus']!="") {?><li><a class="mt-soc-google" href="<?php echo $mt_options['mt_icon_gplus']; ?>"><i class="fa fa-google-plus"></i></a></li><?php }
-		if($mt_options['mt_icon_dribble']!="") {?><li><a class="mt-soc-dribbble" href="<?php echo $mt_options['mt_icon_dribble']; ?>"><i class="fa fa-dribbble"></i></a></li><?php }
-		if($mt_options['mt_icon_skype']!="") {?><li><a class="mt-soc-skype" href="<?php echo $mt_options['mt_icon_skype']; ?>"><i class="fa fa-skype"></i></a></li><?php }
-		if($mt_options['mt_icon_delicious']!="") {?><li><a class="mt-soc-delicious"  href="<?php echo $mt_options['mt_icon_delicious']; ?>"><i class="fa fa-delicious"></i></a></li><?php }
-		if($mt_options['mt_icon_pinterest']!="") {?><li><a class="mt-soc-pinterest" href="<?php echo $mt_options['mt_icon_pinterest']; ?>"><i class="fa fa-pinterest"></i></a></li><?php }
-		if($mt_options['mt_icon_yahoo']!="") {?><li><a class="mt-soc-yahoo" href="<?php echo $mt_options['mt_icon_yahoo']; ?>"><i class="fa fa-yahoo"></i></a></li><?php }
-		if($mt_options['mt_icon_amazon']!="") {?><li><a class="mt-soc-amazon" href="<?php echo $mt_options['mt_icon_amazon']; ?>"><i class="fa fa-shopping-cart"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_facebook'])) {?><li><a class="mt-soc-facebook" href="<?php echo $mt_options['mt_icon_facebook']; ?>"><i class="fa fa-facebook"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_twitter'])) {?><li><a class="mt-soc-twitter" href="<?php echo $mt_options['mt_icon_twitter']; ?>"><i class="fa fa-twitter"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_vimeo'])) {?><li><a class="mt-soc-vimeo" href="<?php echo $mt_options['mt_icon_vimeo']; ?>"><i class="fa fa-vimeo-square"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_youtube'])) {?><li><a class="mt-soc-youtube" href="<?php echo $mt_options['mt_icon_youtube']; ?>"><i class="fa fa-youtube"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_linkedin'])) {?><li><a class="mt-soc-linkedin" href="<?php echo $mt_options['mt_icon_linkedin']; ?>"><i class="fa fa-linkedin"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_gplus'])) {?><li><a class="mt-soc-google" href="<?php echo $mt_options['mt_icon_gplus']; ?>"><i class="fa fa-google-plus"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_dribble'])) {?><li><a class="mt-soc-dribbble" href="<?php echo $mt_options['mt_icon_dribble']; ?>"><i class="fa fa-dribbble"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_skype'])) {?><li><a class="mt-soc-skype" href="<?php echo $mt_options['mt_icon_skype']; ?>"><i class="fa fa-skype"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_delicious'])) {?><li><a class="mt-soc-delicious"  href="<?php echo $mt_options['mt_icon_delicious']; ?>"><i class="fa fa-delicious"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_pinterest'])) {?><li><a class="mt-soc-pinterest" href="<?php echo $mt_options['mt_icon_pinterest']; ?>"><i class="fa fa-pinterest"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_yahoo'])) {?><li><a class="mt-soc-yahoo" href="<?php echo $mt_options['mt_icon_yahoo']; ?>"><i class="fa fa-yahoo"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_amazon'])) {?><li><a class="mt-soc-amazon" href="<?php echo $mt_options['mt_icon_amazon']; ?>"><i class="fa fa-shopping-cart"></i></a></li><?php }
 		if(!empty($mt_options['mt_icon_instagram'])) { if($mt_options['mt_icon_instagram']!="") {?><li><a class="mt-soc-instagram" href="<?php echo $mt_options['mt_icon_instagram']; ?>"><i class="fa fa-instagram"></i></a></li><?php } }
-		if($mt_options['mt_icon_rss']!="") {?><li><a class="mt-soc-rss" href="<?php echo $mt_options['mt_icon_rss']; ?>"><i class="fa fa-rss"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_rss'])) {?><li><a class="mt-soc-rss" href="<?php echo $mt_options['mt_icon_rss']; ?>"><i class="fa fa-rss"></i></a></li><?php }
 
 	?> </ul> <?php
 }
@@ -220,11 +225,12 @@ add_filter('mt_social_r','mt_social_r');
 function mt_header_html() {
 
 	$mt_options = get_option("themename_theme_options");
+ 	if(!empty($mt_options['mt_header_bn']) and !empty($mt_options['mt_header_bu'])) {
+  	if($mt_options['mt_header_bn']!="" and $mt_options['mt_header_bu']!=""){
 
-	if($mt_options['mt_header_bn']!="" and $mt_options['mt_header_bu']!=""){
-
-		?><div id="header_html_area"><a href="<?php echo $mt_options['mt_header_bu']; ?>" class="mt_donation_button"><h2><?php echo $mt_options['mt_header_bn']; ?></h2></a></div><?php
-	}
+  		?><div id="header_html_area"><a href="<?php echo $mt_options['mt_header_bu']; ?>" class="mt_donation_button"><h2><?php echo $mt_options['mt_header_bn']; ?></h2></a></div><?php
+  	}
+  }
 }
 
 add_filter('mt_header_html','mt_header_html');
@@ -262,11 +268,12 @@ add_filter('mt_menu_responsive','mt_menu_responsive');
 
 function mt_menu_html() {
 	$mt_options = get_option("themename_theme_options");
+  if(!empty($mt_options['mt_header_ep'])) {
 	if($mt_options['mt_header_ep']=="1") { ?>
 
 	    <div class="mt_menu_description"><p><?php echo $mt_options['mt_header_email']; ?>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $mt_options['mt_header_phone']; ?></p></div>
 
-	<?php  }
+	<?php  } }
 }
 
 add_filter('mt_menu_html','mt_menu_html');
@@ -435,7 +442,7 @@ if(get_post_meta(get_the_ID(), "mt_style_header", true)!="style_default" and get
 	<?php }
 
 } else {
-
+	if(!empty($mt_options['mt_header_s'])) {
 	if($mt_options['mt_header_s']=="style_4") { ?>
 
 		<header id="header" class="<?php echo $mt_destop; ?>">
@@ -549,8 +556,9 @@ if(get_post_meta(get_the_ID(), "mt_style_header", true)!="style_default" and get
 				<div id="nav_1" class="row">
 
 					<div class="<?php $mt_options = get_option("themename_theme_options");
-					if($mt_options['mt_header_ep']!="1") { echo "col-md-12"; } else { echo "col-md-8"; } ?>"><?php mt_menu(); ?></div>
-					<?php   if($mt_options['mt_header_ep']!="1") { } else { ?><div class="col-md-4"><?php do_action('icl_language_selector');?><?php mt_menu_html(); ?></div><?php } ?>
+					  if(!empty($mt_options['mt_header_ep'])) {
+              if($mt_options['mt_header_ep']!="1") { echo "col-md-12"; } else { echo "col-md-8"; } } else { echo "col-md-8"; }?>"><?php mt_menu(); ?></div>
+					<?php   if(!empty($mt_options['mt_header_ep'])) { if($mt_options['mt_header_ep']!="1") { } else { ?><div class="col-md-4"><?php do_action('icl_language_selector');?><?php mt_menu_html(); ?></div><?php } } else { ?><div class="col-md-4"><?php do_action('icl_language_selector');?><?php mt_menu_html(); ?></div><?php } ?>
 
 
 				</div>
@@ -559,6 +567,38 @@ if(get_post_meta(get_the_ID(), "mt_style_header", true)!="style_default" and get
 		</header>
 
 <?php }
+} else {
+  ?>
+
+  <header id="header" class="<?php echo $mt_destop; ?>">
+    <div class="container">
+      <div class="row">
+
+          <div class="col-md-4"><?php mt_logo(); ?></div>
+
+          <div class="col-md-8 header-right">
+
+            <?php mt_header_html(); ?>
+            <?php mt_social(); ?>
+
+          </div>
+
+        </div>
+
+      <div id="nav_1" class="row">
+
+        <div class="<?php $mt_options = get_option("themename_theme_options");
+        if(!empty($mt_options['mt_header_ep'])) { if($mt_options['mt_header_ep']!="1") { echo "col-md-12"; } else { echo "col-md-8"; }  } else { echo "col-md-8"; } ?>"><?php mt_menu(); ?></div>
+        <?php  if(!empty($mt_options['mt_header_ep'])) { if($mt_options['mt_header_ep']!="1") { } else { ?><div class="col-md-4"><?php do_action('icl_language_selector');?><?php mt_menu_html(); ?></div><?php } } else { ?><div class="col-md-4"><?php do_action('icl_language_selector');?><?php mt_menu_html(); ?></div><?php } ?>
+
+
+      </div>
+    </div>
+
+  </header>
+
+<?php
+}
 
 }
 
@@ -737,10 +777,17 @@ function mt_old_mobile() {
 
 								<?php } ?>
 
-						<?php } else { ?>
+						<?php } else {
 
-							<div class="col-md-<?php if ( $mt_options['mt_breadcrumb']!="1" AND $breadcrumbs != "on"){ echo "12"; } else { echo "8"; }?> <?php echo  $col_8; ?>"><h1><?php the_title(); ?></h1></div>
-							<?php if ( $mt_options['mt_breadcrumb']=="1" AND $breadcrumbs == "on"){ ?><div class="col-md-4 <?php echo $col_4; ?>"><?php  dimox_breadcrumbs(); ?></div><?php } ?>
+              if(!empty($mt_options['mt_breadcrumb'])) {
+                $bred = $mt_options['mt_breadcrumb'];
+              } else {
+                $bred = "";
+              }
+              ?>
+
+							<div class="col-md-<?php if ( $bred!="1" AND $breadcrumbs != "on"){ echo "12"; } else { echo "8"; }?> <?php echo  $col_8; ?>"><h1><?php the_title(); ?></h1></div>
+							<?php if ( $bred=="1" AND $breadcrumbs == "on"){ ?><div class="col-md-4 <?php echo $col_4; ?>"><?php  dimox_breadcrumbs(); ?></div><?php } ?>
 
 						<?php } ?>
 					<?php } ?>
