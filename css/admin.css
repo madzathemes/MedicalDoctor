@@ -1,7 +1,10 @@
 
-.rs-update-notice-wrap, 
+.rs-update-notice-wrap,
 .eg-update-notice-wrap,
 .post-type-page #mm_general,
 .layerslider_notice,
 #vc_logo { display: none!important; }
 .mt-patterns { width: 50px!important; height: 50px!important; }
+.vc_license-activation-notice {
+  display: none!important;
+}
