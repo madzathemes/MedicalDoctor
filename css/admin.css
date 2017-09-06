@@ -5,6 +5,7 @@
 .layerslider_notice,
 #vc_logo { display: none!important; }
 .mt-patterns { width: 50px!important; height: 50px!important; }
-.vc_license-activation-notice {
+.vc_license-activation-notice,
+.ocdi__response .notice.notice-info {
   display: none!important;
 }
