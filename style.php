@@ -482,26 +482,27 @@ if ( $mt_page_bg !="") { if ( $mt_page_bg['background-color'] !="" ) { $mt_page_
 
 
 $title_bg=get_post_meta(get_the_ID(), "m_title_backgrounds", true);
+$title_bg_color = get_option("bg_default_color_title");
 
-
-if($title_bg = "http://medical.madza-wordpress-premium-themes.com/wp-content/uploads/2014/04/page_title_bg.png") { $title_bg = ""; }
 
 
 $mt_title_bg_image = "no";
 if ( $title_bg !="") {  if ( $title_bg['background-image'] !="" ) { $mt_title_bg_image = "yes"; } }
 
 $mt_title_bg_color = "no";
-if ( $title_bg !="") { if ( $title_bg['background-color'] !="" ) { $mt_title_bg_color = "yes"; } }
+if ( !empty($title_bg['background-color'])) { if ( $title_bg['background-color'] !="" ) { $mt_title_bg_color = "yes"; } }
 
 
 $mt_title_patterns = get_post_meta(get_the_ID(), "mt_page_title_color_bg_patterns", true);
 $mt_title_customize = get_option("themename_theme_options");
+if( $mt_title_bg_color == "yes" ) {
 
-if($mt_title_bg_image == "yes" or $mt_title_bg_color == "yes" or $mt_title_patterns!="" and $mt_title_patterns!="off" ) {
+			if($title_bg['background-color'] != "")			{ echo "#header-title { background-color:"; echo $title_bg['background-color']; echo "!important;}";  }
+}
+if($mt_title_bg_image == "yes" or $mt_title_patterns!="" and $mt_title_patterns!="off" ) {
 
 	if( get_post_meta(get_the_ID(), "m_title_backgrounds", true) != "") {
 
-		if($title_bg['background-color'] != "")			{ echo "#header-title { background-color:"; echo $title_bg['background-color']; echo "!important;}";  }
 		if($title_bg['background-image'] != "")			{ echo "#header-title { background-image:url('"; echo $title_bg['background-image']; echo "')!important;}";  }
 		if($title_bg['background-repeat'] != "")		{ echo "#header-title { background-repeat:"; echo $title_bg['background-repeat']; echo "!important;}";  }
 		if($title_bg['background-position'] != "")		{ echo "#header-title { background-position:"; echo $title_bg['background-position']; echo "!important;}";  }
@@ -515,13 +516,14 @@ if($mt_title_bg_image == "yes" or $mt_title_bg_color == "yes" or $mt_title_patte
 	}
 
 } else if ($mt_title_customize !="") {
+	if(!empty($mt_title_customize['image_upload_test_title']) or !empty($title_bg_color))  {
 
-	if($mt_title_customize['image_upload_test_title']!="")  {
 
 			if($mt_title_customize['background_repeat_title'] != "")		{ echo "#header-title { background-repeat:"; echo $mt_title_customize['background_repeat_title']; echo "!important;}";  }
 			if($mt_title_customize['background_position_title'] != "")		{ echo "#header-title { background-position:"; echo $mt_title_customize['background_position_title']; echo "!important;}";  }
 			if($mt_title_customize['image_upload_test_title'] != "")		{ echo "#header-title { background-image:url('"; echo $mt_title_customize['image_upload_test_title']; echo "')!important;}";  }
 			if($mt_title_customize['background_attachment_title'] != "")	{ echo "#header-title { background-attachment:"; echo $mt_title_customize['background_attachment_title']; echo "!important;}";  }
+			if(!empty($title_bg_color))	{ echo "#header-title { background-color:"; echo $title_bg_color; echo "!important;}";  }
 	}
 }
 

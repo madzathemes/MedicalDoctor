@@ -32,7 +32,7 @@ vc_remove_element("vc_pie");
 
 vc_remove_element("vc_toggle");
 
- */
+
 
 if(function_exists('vc_disable_frontend')){
 	vc_disable_frontend();
@@ -47,7 +47,7 @@ $animations = array(
 	"Elements Shows From Fade" => "element_from_fade"
 );
 
-/*** Remove unused parameters ***/
+/*** Remove unused parameters **
 if (function_exists('vc_remove_param')) {
 
 	vc_remove_param('vc_row', 'font_color');
@@ -308,5 +308,5 @@ vc_add_param("vc_row", array(
 #  "dependency" => Array('element' => "row_type", 'value' => array('row'))
 
 #));
-
+*/
 ?>

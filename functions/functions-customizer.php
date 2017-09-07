@@ -1006,6 +1006,23 @@ function themename_customize_register($wp_customize){
         'priority' => 140,
     ));
 
+		$wp_customize->add_setting('themename_theme_options[mt_icon_blank]', array(
+					'capability' => 'edit_theme_options',
+					'default'        => "off",
+					'type'       => 'option',
+					'sanitize_callback' => 'esc_attr',
+			));
+
+			$wp_customize->add_control('mt_icon_blank', array(
+					'settings' => 'themename_theme_options[mt_icon_blank]',
+					'label'    	=> esc_html__('Open in new page', 'xnews'),
+					'section'  => 'themename_icons',
+				 'type'    => 'select',
+					'choices'    => array(
+						'on' => 'On',
+							'off' => 'Off',
+					),
+			));
 
 	//  =============================
     //  = Google Font name

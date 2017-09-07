@@ -177,20 +177,20 @@ function mt_social() {
 
 		$mt_options = get_option("themename_theme_options");
 
-		if(!empty($mt_options['mt_icon_facebook'])) {?><li><a class="mt-soc-facebook" href="<?php echo $mt_options['mt_icon_facebook']; ?>"><i class="fa fa-facebook"></i></a></li><?php }
-		if(!empty($mt_options['mt_icon_twitter'])) {?><li><a class="mt-soc-twitter" href="<?php echo $mt_options['mt_icon_twitter']; ?>"><i class="fa fa-twitter"></i></a></li><?php }
-		if(!empty($mt_options['mt_icon_vimeo'])) {?><li><a class="mt-soc-vimeo" href="<?php echo $mt_options['mt_icon_vimeo']; ?>"><i class="fa fa-vimeo-square"></i></a></li><?php }
-		if(!empty($mt_options['mt_icon_youtube'])) {?><li><a class="mt-soc-youtube" href="<?php echo $mt_options['mt_icon_youtube']; ?>"><i class="fa fa-youtube"></i></a></li><?php }
-		if(!empty($mt_options['mt_icon_linkedin'])) {?><li><a class="mt-soc-linkedin" href="<?php echo $mt_options['mt_icon_linkedin']; ?>"><i class="fa fa-linkedin"></i></a></li><?php }
-		if(!empty($mt_options['mt_icon_gplus'])) {?><li><a class="mt-soc-google" href="<?php echo $mt_options['mt_icon_gplus']; ?>"><i class="fa fa-google-plus"></i></a></li><?php }
-		if(!empty($mt_options['mt_icon_dribble'])) {?><li><a class="mt-soc-dribbble" href="<?php echo $mt_options['mt_icon_dribble']; ?>"><i class="fa fa-dribbble"></i></a></li><?php }
-		if(!empty($mt_options['mt_icon_skype'])) {?><li><a class="mt-soc-skype" href="<?php echo $mt_options['mt_icon_skype']; ?>"><i class="fa fa-skype"></i></a></li><?php }
-		if(!empty($mt_options['mt_icon_delicious'])) {?><li><a class="mt-soc-delicious"  href="<?php echo $mt_options['mt_icon_delicious']; ?>"><i class="fa fa-delicious"></i></a></li><?php }
-		if(!empty($mt_options['mt_icon_pinterest'])) {?><li><a class="mt-soc-pinterest" href="<?php echo $mt_options['mt_icon_pinterest']; ?>"><i class="fa fa-pinterest"></i></a></li><?php }
-		if(!empty($mt_options['mt_icon_yahoo'])) {?><li><a class="mt-soc-yahoo" href="<?php echo $mt_options['mt_icon_yahoo']; ?>"><i class="fa fa-yahoo"></i></a></li><?php }
-		if(!empty($mt_options['mt_icon_amazon'])) {?><li><a class="mt-soc-amazon" href="<?php echo $mt_options['mt_icon_amazon']; ?>"><i class="fa fa-shopping-cart"></i></a></li><?php }
-		if(!empty($mt_options['mt_icon_instagram'])) { if($mt_options['mt_icon_instagram']!="") {?><li><a class="mt-soc-instagram" href="<?php echo $mt_options['mt_icon_instagram']; ?>"><i class="fa fa-instagram"></i></a></li><?php } }
-		if(!empty($mt_options['mt_icon_rss'])) {?><li><a class="mt-soc-rss" href="<?php echo $mt_options['mt_icon_rss']; ?>"><i class="fa fa-rss"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_facebook'])) {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-facebook" href="<?php echo $mt_options['mt_icon_facebook']; ?>"><i class="fa fa-facebook"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_twitter'])) {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-twitter" href="<?php echo $mt_options['mt_icon_twitter']; ?>"><i class="fa fa-twitter"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_vimeo'])) {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-vimeo" href="<?php echo $mt_options['mt_icon_vimeo']; ?>"><i class="fa fa-vimeo-square"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_youtube'])) {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-youtube" href="<?php echo $mt_options['mt_icon_youtube']; ?>"><i class="fa fa-youtube"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_linkedin'])) {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-linkedin" href="<?php echo $mt_options['mt_icon_linkedin']; ?>"><i class="fa fa-linkedin"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_gplus'])) {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-google" href="<?php echo $mt_options['mt_icon_gplus']; ?>"><i class="fa fa-google-plus"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_dribble'])) {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-dribbble" href="<?php echo $mt_options['mt_icon_dribble']; ?>"><i class="fa fa-dribbble"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_skype'])) {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-skype" href="<?php echo $mt_options['mt_icon_skype']; ?>"><i class="fa fa-skype"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_delicious'])) {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-delicious"  href="<?php echo $mt_options['mt_icon_delicious']; ?>"><i class="fa fa-delicious"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_pinterest'])) {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-pinterest" href="<?php echo $mt_options['mt_icon_pinterest']; ?>"><i class="fa fa-pinterest"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_yahoo'])) {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-yahoo" href="<?php echo $mt_options['mt_icon_yahoo']; ?>"><i class="fa fa-yahoo"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_amazon'])) {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-amazon" href="<?php echo $mt_options['mt_icon_amazon']; ?>"><i class="fa fa-shopping-cart"></i></a></li><?php }
+		if(!empty($mt_options['mt_icon_instagram'])) { ?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-instagram" href="<?php echo $mt_options['mt_icon_instagram']; ?>"><i class="fa fa-instagram"></i></a></li><?php  }
+		if(!empty($mt_options['mt_icon_rss'])) {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-rss" href="<?php echo $mt_options['mt_icon_rss']; ?>"><i class="fa fa-rss"></i></a></li><?php }
 
 	?> </ul> <?php
 }
@@ -203,20 +203,20 @@ function mt_social_r() {
 
         $mt_options = get_option("themename_theme_options");
 
-        if($mt_options['mt_icon_facebook']!="") {?><li><a class="mt-soc-facebook" href="<?php echo $mt_options['mt_icon_facebook']; ?>"><i class="fa fa-facebook"></i></a></li><?php }
-        if($mt_options['mt_icon_twitter']!="") {?><li><a class="mt-soc-twitter" href="<?php echo $mt_options['mt_icon_twitter']; ?>"><i class="fa fa-twitter"></i></a></li><?php }
-        if($mt_options['mt_icon_vimeo']!="") {?><li><a class="mt-soc-vimeo" href="<?php echo $mt_options['mt_icon_vimeo']; ?>"><i class="fa fa-vimeo-square"></i></a></li><?php }
-        if($mt_options['mt_icon_youtube']!="") {?><li><a class="mt-soc-youtube" href="<?php echo $mt_options['mt_icon_youtube']; ?>"><i class="fa fa-youtube"></i></a></li><?php }
-        if($mt_options['mt_icon_linkedin']!="") {?><li><a class="mt-soc-linkedin" href="<?php echo $mt_options['mt_icon_linkedin']; ?>"><i class="fa fa-linkedin"></i></a></li><?php }
-        if($mt_options['mt_icon_gplus']!="") {?><li><a class="mt-soc-google" href="<?php echo $mt_options['mt_icon_gplus']; ?>"><i class="fa fa-google-plus"></i></a></li><?php }
-        if($mt_options['mt_icon_dribble']!="") {?><li><a class="mt-soc-dribbble" href="<?php echo $mt_options['mt_icon_dribble']; ?>"><i class="fa fa-dribbble"></i></a></li><?php }
-        if($mt_options['mt_icon_skype']!="") {?><li><a class="mt-soc-skype" href="<?php echo $mt_options['mt_icon_skype']; ?>"><i class="fa fa-skype"></i></a></li><?php }
-        if($mt_options['mt_icon_delicious']!="") {?><li><a class="mt-soc-delicious"  href="<?php echo $mt_options['mt_icon_delicious']; ?>"><i class="fa fa-delicious"></i></a></li><?php }
-        if($mt_options['mt_icon_pinterest']!="") {?><li><a class="mt-soc-pinterest" href="<?php echo $mt_options['mt_icon_pinterest']; ?>"><i class="fa fa-pinterest"></i></a></li><?php }
-        if($mt_options['mt_icon_yahoo']!="") {?><li><a class="mt-soc-yahoo" href="<?php echo $mt_options['mt_icon_yahoo']; ?>"><i class="fa fa-yahoo"></i></a></li><?php }
-        if($mt_options['mt_icon_amazon']!="") {?><li><a class="mt-soc-amazon" href="<?php echo $mt_options['mt_icon_amazon']; ?>"><i class="fa fa-shopping-cart"></i></a></li><?php }
-        if(!empty($mt_options['mt_icon_instagram'])) { if($mt_options['mt_icon_instagram']!="") {?><li><a class="mt-soc-instagram" href="<?php echo $mt_options['mt_icon_instagram']; ?>"><i class="fa fa-instagram"></i></a></li><?php } }
-        if($mt_options['mt_icon_rss']!="") {?><li><a class="mt-soc-rss" href="<?php echo $mt_options['mt_icon_rss']; ?>"><i class="fa fa-rss"></i></a></li><?php }
+        if($mt_options['mt_icon_facebook']!="") {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-facebook" href="<?php echo $mt_options['mt_icon_facebook']; ?>"><i class="fa fa-facebook"></i></a></li><?php }
+        if($mt_options['mt_icon_twitter']!="") {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-twitter" href="<?php echo $mt_options['mt_icon_twitter']; ?>"><i class="fa fa-twitter"></i></a></li><?php }
+        if($mt_options['mt_icon_vimeo']!="") {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-vimeo" href="<?php echo $mt_options['mt_icon_vimeo']; ?>"><i class="fa fa-vimeo-square"></i></a></li><?php }
+        if($mt_options['mt_icon_youtube']!="") {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-youtube" href="<?php echo $mt_options['mt_icon_youtube']; ?>"><i class="fa fa-youtube"></i></a></li><?php }
+        if($mt_options['mt_icon_linkedin']!="") {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-linkedin" href="<?php echo $mt_options['mt_icon_linkedin']; ?>"><i class="fa fa-linkedin"></i></a></li><?php }
+        if($mt_options['mt_icon_gplus']!="") {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-google" href="<?php echo $mt_options['mt_icon_gplus']; ?>"><i class="fa fa-google-plus"></i></a></li><?php }
+        if($mt_options['mt_icon_dribble']!="") {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-dribbble" href="<?php echo $mt_options['mt_icon_dribble']; ?>"><i class="fa fa-dribbble"></i></a></li><?php }
+        if($mt_options['mt_icon_skype']!="") {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-skype" href="<?php echo $mt_options['mt_icon_skype']; ?>"><i class="fa fa-skype"></i></a></li><?php }
+        if($mt_options['mt_icon_delicious']!="") {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-delicious"  href="<?php echo $mt_options['mt_icon_delicious']; ?>"><i class="fa fa-delicious"></i></a></li><?php }
+        if($mt_options['mt_icon_pinterest']!="") {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-pinterest" href="<?php echo $mt_options['mt_icon_pinterest']; ?>"><i class="fa fa-pinterest"></i></a></li><?php }
+        if($mt_options['mt_icon_yahoo']!="") {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-yahoo" href="<?php echo $mt_options['mt_icon_yahoo']; ?>"><i class="fa fa-yahoo"></i></a></li><?php }
+        if($mt_options['mt_icon_amazon']!="") {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-amazon" href="<?php echo $mt_options['mt_icon_amazon']; ?>"><i class="fa fa-shopping-cart"></i></a></li><?php }
+        if(!empty($mt_options['mt_icon_instagram'])) { ?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-instagram" href="<?php echo $mt_options['mt_icon_instagram']; ?>"><i class="fa fa-instagram"></i></a></li><?php }
+        if($mt_options['mt_icon_rss']!="") {?><li><a <?php if(!empty($mt_options['mt_icon_blank'])) { if($mt_options['mt_icon_blank']=="on") {?> target="_blank" <?php }} ?> class="mt-soc-rss" href="<?php echo $mt_options['mt_icon_rss']; ?>"><i class="fa fa-rss"></i></a></li><?php }
 
     ?> </ul> <?php
 }

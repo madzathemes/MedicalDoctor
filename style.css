@@ -410,6 +410,14 @@ form {
     font-weight: 200;
     font-size: 13px
 }
+blockquote {
+	padding-left: 20px;
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+}
+blockquote p {
+	padding-bottom: 0px;
+}
 
 .absolute { position: absolute!important }
 
@@ -421,7 +429,7 @@ form {
 	margin: 5px 0px 10px 0px
 }
 
-.widget_h span { background: white; padding-right: 7px }
+.widget_h span { background: white; padding: 5px 5px 5px 0px; }
 
 .widget_h {
 	font-weight: 400!important;
@@ -5333,4 +5341,11 @@ p#nav {border:0px solid silver!important; background:none!important; }
     line-height: 54px;
     width: 54px;
     height: 54px;
+}
+
+.compose-mode .vc_vc_row>.vc_parallax, .compose-mode .vc_vc_row>[data-vc-full-width=true], .compose-mode .vc_vc_row_inner, .compose-mode .vc_vc_section>.vc_parallax, .compose-mode .vc_vc_section>[data-vc-full-width=true], .compose-mode .vc_vc_video {
+	padding-top: 0px !important;
+}
+.vc_empty-placeholder {
+	margin-bottom: 0px !important;
 }

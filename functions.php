@@ -446,15 +446,12 @@ add_filter( 'pt-ocdi/import_files', 'xnews_import_files' );
 // If user agree change front page layots
 function xnews_after_import_setup() {
 // Assign menus to their locations.
-$main_menu = get_term_by( 'name', 'Header', 'nav_menu' );
+$main_menu = get_term_by( 'name', 'Header Menu', 'nav_menu' );
 $mobile_menu = get_term_by( 'name', 'Mobile Menu', 'nav_menu' );
-$top_menu = get_term_by( 'name', 'Footer Menu', 'nav_menu' );
-$footer_menu = get_term_by( 'name', 'Footer Menu', 'nav_menu' );
-
+$footer_menu = get_term_by( 'name', 'Footer', 'nav_menu' );
     set_theme_mod( 'nav_menu_locations', array(
             'primary' => $main_menu->term_id,
-						'mobile' => $mobile_menu->term_id,
-						'top_menu' => $top_menu->term_id,
+						'select_menu' => $mobile_menu->term_id,
 						'footer_menu' => $footer_menu->term_id,
         )
     );
@@ -463,7 +460,7 @@ $footer_menu = get_term_by( 'name', 'Footer Menu', 'nav_menu' );
 wp_delete_post(1);
 
     // Assign front page and posts page (blog page).
-    $front_page_id = get_page_by_title( 'News' );
+    $front_page_id = get_page_by_title( 'Homepage' );
 
     update_option( 'show_on_front', 'page' );
     update_option( 'page_on_front', $front_page_id->ID );
