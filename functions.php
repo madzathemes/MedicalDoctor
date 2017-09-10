@@ -433,10 +433,10 @@ if (class_exists('WPBakeryVisualComposerAbstract')) {
 function xnews_import_files() {
     return array(
         array(
-            'import_file_name'             => esc_html__( 'Demo 1', 'xnews' ),
-            'local_import_file'            => trailingslashit( get_template_directory() ) . 'functions/import/demo1/demo.xml',
+            'import_file_name'             => esc_html__( 'Demo 13', 'xnews' ),
+            #'local_import_file'            => trailingslashit( get_template_directory() ) . 'functions/import/demo1/demo.xml',
             'local_import_widget_file'     => trailingslashit( get_template_directory() ) . 'functions/import/demo1/widgets.json',
-            'local_import_customizer_file' => trailingslashit( get_template_directory() ) . 'functions/import/demo1/customizer.dat',
+            #'local_import_customizer_file' => trailingslashit( get_template_directory() ) . 'functions/import/demo1/customizer.dat',
             'import_notice'                => esc_html__( 'Customize this theme from Appearance/Customize', 'xnews' ),
         )
     );
