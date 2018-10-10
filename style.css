@@ -377,7 +377,6 @@ h1,h2,h3,h4,h5,h6 {
     margin-bottom: 5px!important;
     color: #5A5A5A;
     font-weight: 300;
-    font-family: Helvetica, Arial, sans-serif;
     text-transform: normal;
     line-height: 1.5!important;
 }
@@ -1877,7 +1876,6 @@ th {
 
 .screen-reader-text {
     font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
     color: #383838;
     margin-top: 2.1em;

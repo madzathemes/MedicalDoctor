@@ -45,14 +45,6 @@ function header_script() {
 
 		wp_enqueue_script('cycle', get_template_directory_uri() . '/functions/js/cycle.js', array('jquery'), '1.0');
 
-		$protocol = is_ssl() ? 'https' : 'http';
-
-    if(empty($mt_options['font_name'])) {
-      $fontname = "";
-    } else {
-      $fontname = $mt_options['font_name'];
-    }
-		wp_enqueue_style( 'madzatheme-fonts', "$protocol://fonts.googleapis.com/css?family=". $fontname );
 		#wp_enqueue_style('fontawesome', get_template_directory_uri().'/functions/plugins/FortAwesome/css/font-awesome.min.css');
 		wp_enqueue_style('fontawesome', get_template_directory_uri().'/functions/plugins/FontAwesome_4/css/font-awesome.min.css');
 		wp_enqueue_style('nprogress-css', get_template_directory_uri().'/css/nprogress.css');
@@ -75,14 +67,6 @@ function header_script() {
 		wp_enqueue_style('admin-css', get_template_directory_uri().'/css/admin.css');
 
 		wp_enqueue_script('customadmin', get_template_directory_uri() . '/functions/js/jquery.customadmin.js', array('jquery'), '1.0');
-
-		$protocol = is_ssl() ? 'https' : 'http';
-    if(empty($mt_options['font_name'])) {
-      $fontname = "";
-    } else {
-      $fontname = $mt_options['font_name'];
-    }
-		wp_enqueue_style( 'madzatheme-fonts', "$protocol://fonts.googleapis.com/css?family=". $fontname );
 
 	}
 
@@ -110,12 +94,7 @@ function header_hooks() {
   <?php wp_enqueue_script('html5shiv', get_template_directory_uri() . '/functions/js/html5shiv.js'); ?>
   <?php wp_enqueue_script('respond', get_template_directory_uri() . '/functions/js/respond.min.js'); ?>
 <![endif]-->
-<script type="text/javascript">
-  tinymce.init({
-    selector: '#myeditablediv',
-    inline: true
-  });
-  </script>
+
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php

@@ -358,44 +358,7 @@ table.tribe-events-calendar th,
 #easy_widget_form .easy-submit .easybutton,
 #easyFrontendFormular input.easy-button {  border-color: <?php echo $mt_color_type; ?>!important; }
 
-
-
 <?php
-
-
-
-
-
-/* --------------------------------------------------------------------------------------- Footer Style */
-
-if(ot_get_option("footer_partner_logo")!="" AND ot_get_option("footer_partner")=="1"){ ?> #footer-logos { background: url(<?php echo ot_get_option("footer_partner_logo"); ?>) center no-repeat!important; } <?php }
-
-
-/* --------------------------------------------------------------------------------------- Background Style */
-global $post;
-
-$background_color = get_post_meta(get_the_ID(), "madza_style_background_color", true);
-$background_color_custom = ot_get_option("color_background");
-
-
-
-if(is_front_page()) {
-
-	$mt_slider_height = ot_get_option('mt_homepage_slider_height');
-	echo "#mt_3d_slider #viewport, #mt_3d_slider #box, #mt_3d_slider .slide, #slider-nivo, #slider_image { height: ". $mt_slider_height ."px!important; }";
-	echo "#mt_3d_slider #time-indicator { top: ". $mt_slider_height ."px!important; } #mb_home_button { background: rgba(19, 19, 19, 0.3)!important; }";
-
-} else {
-
-	$mt_slider_height = get_post_meta(get_the_ID(), "mt_page_slider_height", true);
-	echo "#mt_3d_slider #viewport, #mt_3d_slider #box, #mt_3d_slider .slide, #slider-nivo, #slider_image { height: ". $mt_slider_height ."px!important; }";
-	echo "#mt_3d_slider #time-indicator { top: ". $mt_slider_height ."px!important; }";
-
-}
-
-
-
-
 
 /* ---------------------------------------------------------------------------------------  Background Style */
 
@@ -479,8 +442,6 @@ if ( $mt_page_bg !="") { if ( $mt_page_bg['background-color'] !="" ) { $mt_page_
 
 
 
-
-
 $title_bg=get_post_meta(get_the_ID(), "m_title_backgrounds", true);
 $title_bg_color = get_option("bg_default_color_title");
 
@@ -527,28 +488,5 @@ if($mt_title_bg_image == "yes" or $mt_title_patterns!="" and $mt_title_patterns!
 	}
 }
 
-
-/* --------------------------------------------------------------------------------------- Font Style */
-
-$mt_fonts = get_option("themename_theme_options");
-
-
-	if($mt_fonts['font_css']!=""){
-		echo ".nav li a strongs, #title-button, .nivo-caption-bg h1, .tp-simpleresponsive .caption, .mega_dropdown .post_title {"; echo $mt_fonts['font_css']; echo "}";
-        echo "h1,h2,h3,h4,h5,h6,h1 a,h2 a,h3 a,h4 a,h5 a,h6 a,#title-left h1, .entry-title p, .entry-title p, #tribe-bar-form label {"; echo $mt_fonts['font_css']; echo "}";
-	 } else {
-		echo ".nav li a strongs, #title-button, .nivo-caption-bg h1, .tp-simpleresponsive .caption, .mega_dropdown .post_title{ font-family: 'Cabin', sans-serif;}";
-        echo "h1,h2,h3,h4,h5,h6,h1 a,h2 a,h3 a,h4 a,h5 a,h6 a, .entry-title p, #tribe-bar-form label {font-family: 'Cabin', sans-serif;}";
-	 }
-
-
-
-
-/* --------------------------------------------------------------------------------------- Color Style */
-
-
- ?>
-
-
-<?php  ?>
+?>
 </style>

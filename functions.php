@@ -17,7 +17,6 @@ define('MADZA_FILEPATH', get_template_directory());
 define('MADZA_DIRECTORY', get_template_directory_uri());
 
 
-
 /**
  * Optional: set 'ot_show_pages' filter to false.
  * This will hide the settings & documentation pages.
@@ -44,7 +43,8 @@ include_once( 'option-tree/theme-options.php' );
 /*-----------------------------------------------------------------------------------*/
 /* Function
 /*-----------------------------------------------------------------------------------*/
-
+include_once ('functions/kirki/kirki.php');
+include_once ('functions/customizer-fonts.php');
 include_once ('functions/class-widget.php');
 include_once ('functions/class-metabox.php');
 include_once ('functions/functions-widget.php');
@@ -59,8 +59,7 @@ include_once ('functions/functions-customizer.php');
 include_once ('functions/plugins/glass-slider/glass-slider.php');
 include_once ('functions/plugins/aq_resizer.php');
 
-include_once ('functions/customizer-fonts.php');
-include_once ('functions/kirki/kirki.php');
+
 
 /*-----------------------------------------------------------------------------------*/
 /* Madza Theme Setup
@@ -115,8 +114,15 @@ function madzathemes_page_menu_args( $args ) {
 }
 add_filter( 'wp_page_menu_args', 'madzathemes_page_menu_args' );
 
-function new_excerpt_length( $length ) {
 
+function new_excerpt_length( $length ) {
+	/* SAMPLE */
+	$style = get_post_meta(get_the_ID(), "magazin_post_style", true);
+	$option = get_option("healthclinic_theme_options");
+	$default = "";
+	if(!empty($option['post_style'])) {
+		$default = $option['post_style'];
+	}
 	if(ot_get_option("blog_content_lenght")!="") { $lenghts = ot_get_option("blog_content_lenght"); } else { $lenghts = "100"; }
 	return $lenghts;
 

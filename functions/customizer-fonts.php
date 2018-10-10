@@ -14,9 +14,9 @@ if ( class_exists( 'Kirki' ) ) {
 
     // Add section
     Kirki::add_section( 'mt_typography_section', array(
-        'title'       => esc_html__('Font Family', 'nextnews'),
-        #'panel'       => 'mt_fonts',
-        'priority'    => 11,
+        'title'       => esc_html__('Fonts', 'nextnews'),
+        'panel'       => 'mt_fonts',
+        'priority'    => 50,
     ) );
 
 

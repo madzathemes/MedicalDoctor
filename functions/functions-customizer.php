@@ -861,50 +861,6 @@ function themename_customize_register($wp_customize){
 
 
 
-    //	==================================================
-    //  =============================
-    //  = ==== Fonts
-    //  =============================
-
-    $wp_customize->add_section('themename_fonts', array(
-        'title'    => __('Fonts', 'themename'),
-        'priority' => 130,
-    ));
-
-
-	//  =============================
-    //  = Google Font name
-    //  =============================
-    $wp_customize->add_setting('themename_theme_options[font_name]', array(
-        'default'        => 'Open+Sans:300,400,600,700',
-        'capability'     => 'edit_theme_options',
-        'type'           => 'option',
-
-
-    ));
-
-    $wp_customize->add_control('mt_google_font_name', array(
-        'label'      => 'Google Font Name',
-        'section'    => 'themename_fonts',
-        'settings'   => 'themename_theme_options[font_name]',
-    ));
-
-
-    //  =============================
-    //  = Google Font name
-    //  =============================
-    $wp_customize->add_setting('themename_theme_options[font_css]', array(
-        'default'        => "font-family: 'Open Sans', sans-serif;",
-        'capability'     => 'edit_theme_options',
-        'type'           => 'option',
-
-    ));
-
-    $wp_customize->add_control('mt_google_font_css', array(
-        'label'      => 'Google Font CSS',
-        'section'    => 'themename_fonts',
-        'settings'   => 'themename_theme_options[font_css]',
-    ));
 
 
 
