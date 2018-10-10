@@ -59,6 +59,9 @@ include_once ('functions/functions-customizer.php');
 include_once ('functions/plugins/glass-slider/glass-slider.php');
 include_once ('functions/plugins/aq_resizer.php');
 
+include_once ('functions/customizer-fonts.php');
+include_once ('functions/kirki/kirki.php');
+
 /*-----------------------------------------------------------------------------------*/
 /* Madza Theme Setup
 /*-----------------------------------------------------------------------------------*/
@@ -254,7 +257,7 @@ function my_theme_register_required_plugins() {
             'slug'			=> 'js_composer', // The plugin slug (typically the folder name)
             'source'			=> get_stylesheet_directory() . '/all_plugins/js_composer.zip', // The plugin source
             'required'			=> true, // If false, the plugin is only 'recommended' instead of required
-            'version'			=> '5.2.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+            'version'			=> '5.5.4', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
             'force_activation'		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
             'force_deactivation'	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
             'external_url'		=> '', // If set, overrides default API URL and points to an external URL
@@ -269,7 +272,7 @@ function my_theme_register_required_plugins() {
             'slug'			=> 'LayerSlider', // The plugin slug (typically the folder name)
             'source'			=> get_stylesheet_directory() . '/all_plugins/LayerSlider.zip', // The plugin source
             'required'			=> true, // If false, the plugin is only 'recommended' instead of required
-            'version'			=> '6.5.0', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+            'version'			=> '6.7.6', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
             'force_activation'		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
             'force_deactivation'	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
             'external_url'		=> '', // If set, overrides default API URL and points to an external URL
@@ -290,7 +293,7 @@ function my_theme_register_required_plugins() {
             'slug'			=> 'envato-market', // The plugin slug (typically the folder name)
             'source'			=> get_template_directory() . '/all_plugins/envato-market.zip', // The plugin source
             'required'			=> true, // If false, the plugin is only 'recommended' instead of required
-            'version'			=> '1.0', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+            'version'			=> '2.0.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
             'force_activation'		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
             'force_deactivation'	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
             'external_url'		=> '', // If set, overrides default API URL and points to an external URL
@@ -300,7 +303,7 @@ function my_theme_register_required_plugins() {
             'slug'			=> 'timetable', // The plugin slug (typically the folder name)
             'source'			=> get_stylesheet_directory() . '/all_plugins/timetable.zip', // The plugin source
             'required'			=> true, // If false, the plugin is only 'recommended' instead of required
-            'version'			=> '4.0', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+            'version'			=> '5.5', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
             'force_activation'		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
             'force_deactivation'	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
             'external_url'		=> '', // If set, overrides default API URL and points to an external URL
@@ -434,9 +437,9 @@ function xnews_import_files() {
     return array(
         array(
             'import_file_name'             => esc_html__( 'Demo 13', 'xnews' ),
-            #'local_import_file'            => trailingslashit( get_template_directory() ) . 'functions/import/demo1/demo.xml',
+            'local_import_file'            => trailingslashit( get_template_directory() ) . 'functions/import/demo1/demo.xml',
             'local_import_widget_file'     => trailingslashit( get_template_directory() ) . 'functions/import/demo1/widgets.json',
-            #'local_import_customizer_file' => trailingslashit( get_template_directory() ) . 'functions/import/demo1/customizer.dat',
+            'local_import_customizer_file' => trailingslashit( get_template_directory() ) . 'functions/import/demo1/customizer.dat',
             'import_notice'                => esc_html__( 'Customize this theme from Appearance/Customize', 'xnews' ),
         )
     );
